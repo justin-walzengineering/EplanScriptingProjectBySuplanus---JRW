@@ -1,7 +1,7 @@
 ﻿// InsertComment, Version 1.2.0, vom 16.04.2013
 //
-// Erweitert Eplan Electric P8 um die Möglichkeit Kommentare einzufügen,
-// diese können dann mit dem Kommentare-Navigator verwaltet werden.
+// Erweitert Eplan Electric P8 um die Möglichkeit Commente einzufügen,
+// diese können dann mit dem Commente-Navigator verwaltet werden.
 //
 // Copyright by Frank Schöneck, 2013
 // letzte Änderung: Frank Schöneck, 28.02.2013 V1.0.0, Projektbeginn
@@ -11,6 +11,21 @@
 //
 // für Eplan Electric P8, ab V2.2
 //
+
+// InsertComment, Version 1.2.0, dated 16.04.2013
+//
+// Extends Eplan Electric P8 to allow comments to be added
+// these can then be managed using the Comments Navigator.
+//
+// Copyright by Frank Schöneck, 2013
+// last change: Frank Schöneck, 28.02.2013 V1.0.0, start of project
+// Frank Schöneck, 01.03.2013 V1.1.0, level, line type and pattern length used as variables
+// Frank Schöneck, 16.04.2013 V1.2.0, New tab "Settings" with the possibility to group,
+// Name changed from "InsertPDFComment" to "InsertComment"
+//
+// for Eplan Electric P8, from V2.2
+//
+
 using System.Windows.Forms;
 using Eplan.EplApi.Scripting;
 using Eplan.EplApi.ApplicationFramework;
@@ -18,22 +33,22 @@ using Eplan.EplApi.Base;
 using System;
 using System.Xml;
 
-public partial class frmInsertKommentar : System.Windows.Forms.Form
+public partial class frmInsertComment : System.Windows.Forms.Form
 {
 	private Button btnOK;
 	private Button btnAbort;
 	private TabControl tabControl1;
 	private Label label1;
 	private Label label2;
-	private TextBox txtVerfasser;
-	private TextBox txtKommentartext;
+	private TextBox txtWriter;
+	private TextBox txtCommentext;
 	private Label label4;
-	private TabPage tabKommentar;
-	private DateTimePicker dTPErstellungsdatum;
+	private TabPage tabComment;
+	private DateTimePicker dCreationDate;
 	private ComboBox cBStatus;
 	private Label label3;
-	private TabPage tabEinstellungen;
-	private CheckBox chkKommentartextGruppieren;
+	private TabPage tabSettings;
+	private CheckBox chkCommentTextGroup;
 
 	#region Vom Windows Form-Designer generierter Code
 
@@ -66,20 +81,20 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.btnOK = new System.Windows.Forms.Button();
 		this.btnAbort = new System.Windows.Forms.Button();
 		this.tabControl1 = new System.Windows.Forms.TabControl();
-		this.tabKommentar = new System.Windows.Forms.TabPage();
+		this.tabComment = new System.Windows.Forms.TabPage();
 		this.cBStatus = new System.Windows.Forms.ComboBox();
-		this.dTPErstellungsdatum = new System.Windows.Forms.DateTimePicker();
-		this.txtKommentartext = new System.Windows.Forms.TextBox();
+		this.dCreationDate = new System.Windows.Forms.DateTimePicker();
+		this.txtCommentext = new System.Windows.Forms.TextBox();
 		this.label4 = new System.Windows.Forms.Label();
 		this.label3 = new System.Windows.Forms.Label();
 		this.label2 = new System.Windows.Forms.Label();
-		this.txtVerfasser = new System.Windows.Forms.TextBox();
+		this.txtWriter = new System.Windows.Forms.TextBox();
 		this.label1 = new System.Windows.Forms.Label();
-		this.tabEinstellungen = new System.Windows.Forms.TabPage();
-		this.chkKommentartextGruppieren = new System.Windows.Forms.CheckBox();
+		this.tabSettings = new System.Windows.Forms.TabPage();
+		this.chkCommentTextGroup = new System.Windows.Forms.CheckBox();
 		this.tabControl1.SuspendLayout();
-		this.tabKommentar.SuspendLayout();
-		this.tabEinstellungen.SuspendLayout();
+		this.tabComment.SuspendLayout();
+		this.tabSettings.SuspendLayout();
 		this.SuspendLayout();
 		// 
 		// btnOK
@@ -105,8 +120,8 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		// 
 		// tabControl1
 		// 
-		this.tabControl1.Controls.Add(this.tabKommentar);
-		this.tabControl1.Controls.Add(this.tabEinstellungen);
+		this.tabControl1.Controls.Add(this.tabComment);
+		this.tabControl1.Controls.Add(this.tabSettings);
 		this.tabControl1.Location = new System.Drawing.Point(12, 12);
 		this.tabControl1.Name = "tabControl1";
 		this.tabControl1.SelectedIndex = 0;
@@ -114,29 +129,29 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.tabControl1.TabIndex = 2;
 		this.tabControl1.TabStop = false;
 		// 
-		// tabKommentar
+		// tabComment
 		// 
-		this.tabKommentar.BackColor = System.Drawing.Color.Transparent;
-		this.tabKommentar.Controls.Add(this.cBStatus);
-		this.tabKommentar.Controls.Add(this.dTPErstellungsdatum);
-		this.tabKommentar.Controls.Add(this.txtKommentartext);
-		this.tabKommentar.Controls.Add(this.label4);
-		this.tabKommentar.Controls.Add(this.label3);
-		this.tabKommentar.Controls.Add(this.label2);
-		this.tabKommentar.Controls.Add(this.txtVerfasser);
-		this.tabKommentar.Controls.Add(this.label1);
-		this.tabKommentar.Location = new System.Drawing.Point(4, 22);
-		this.tabKommentar.Name = "tabKommentar";
-		this.tabKommentar.Padding = new System.Windows.Forms.Padding(3);
-		this.tabKommentar.Size = new System.Drawing.Size(418, 331);
-		this.tabKommentar.TabIndex = 0;
-		this.tabKommentar.Text = "Kommentar";
+		this.tabComment.BackColor = System.Drawing.Color.Transparent;
+		this.tabComment.Controls.Add(this.cBStatus);
+		this.tabComment.Controls.Add(this.dCreationDate);
+		this.tabComment.Controls.Add(this.txtCommentext);
+		this.tabComment.Controls.Add(this.label4);
+		this.tabComment.Controls.Add(this.label3);
+		this.tabComment.Controls.Add(this.label2);
+		this.tabComment.Controls.Add(this.txtWriter);
+		this.tabComment.Controls.Add(this.label1);
+		this.tabComment.Location = new System.Drawing.Point(4, 22);
+		this.tabComment.Name = "tabComment";
+		this.tabComment.Padding = new System.Windows.Forms.Padding(3);
+		this.tabComment.Size = new System.Drawing.Size(418, 331);
+		this.tabComment.TabIndex = 0;
+		this.tabComment.Text = "Comment";
 		// 
 		// cBStatus
 		// 
 		this.cBStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 		this.cBStatus.Items.AddRange(new object[] {
-            "kein Status",
+            "no Status",
             "Akzeptiert",
             "Abgelehnt",
             "Abgebrochen",
@@ -147,23 +162,23 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.cBStatus.Size = new System.Drawing.Size(211, 21);
 		this.cBStatus.TabIndex = 2;
 		// 
-		// dTPErstellungsdatum
+		// dCreationDate
 		// 
-		this.dTPErstellungsdatum.CustomFormat = "dd.MM.yyyy HH:mm:ss";
-		this.dTPErstellungsdatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-		this.dTPErstellungsdatum.Location = new System.Drawing.Point(9, 94);
-		this.dTPErstellungsdatum.Name = "dTPErstellungsdatum";
-		this.dTPErstellungsdatum.ShowUpDown = true;
-		this.dTPErstellungsdatum.Size = new System.Drawing.Size(155, 20);
-		this.dTPErstellungsdatum.TabIndex = 1;
+		this.dCreationDate.CustomFormat = "dd.MM.yyyy HH:mm:ss";
+		this.dCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+		this.dCreationDate.Location = new System.Drawing.Point(9, 94);
+		this.dCreationDate.Name = "dCreationDate";
+		this.dCreationDate.ShowUpDown = true;
+		this.dCreationDate.Size = new System.Drawing.Size(155, 20);
+		this.dCreationDate.TabIndex = 1;
 		// 
-		// txtKommentartext
+		// txtCommentext
 		// 
-		this.txtKommentartext.Location = new System.Drawing.Point(6, 145);
-		this.txtKommentartext.Multiline = true;
-		this.txtKommentartext.Name = "txtKommentartext";
-		this.txtKommentartext.Size = new System.Drawing.Size(406, 175);
-		this.txtKommentartext.TabIndex = 3;
+		this.txtCommentext.Location = new System.Drawing.Point(6, 145);
+		this.txtCommentext.Multiline = true;
+		this.txtCommentext.Name = "txtCommentext";
+		this.txtCommentext.Size = new System.Drawing.Size(406, 175);
+		this.txtCommentext.TabIndex = 3;
 		// 
 		// label4
 		// 
@@ -172,7 +187,7 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.label4.Name = "label4";
 		this.label4.Size = new System.Drawing.Size(80, 13);
 		this.label4.TabIndex = 6;
-		this.label4.Text = "Kommentartext:";
+		this.label4.Text = "Commenttext:";
 		// 
 		// label3
 		// 
@@ -190,14 +205,14 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.label2.Name = "label2";
 		this.label2.Size = new System.Drawing.Size(90, 13);
 		this.label2.TabIndex = 2;
-		this.label2.Text = "Erstellungsdatum:";
+		this.label2.Text = "CreationDate:";
 		// 
-		// txtVerfasser
+		// txtWriter
 		// 
-		this.txtVerfasser.Location = new System.Drawing.Point(6, 44);
-		this.txtVerfasser.Name = "txtVerfasser";
-		this.txtVerfasser.Size = new System.Drawing.Size(406, 20);
-		this.txtVerfasser.TabIndex = 0;
+		this.txtWriter.Location = new System.Drawing.Point(6, 44);
+		this.txtWriter.Name = "txtWriter";
+		this.txtWriter.Size = new System.Drawing.Size(406, 20);
+		this.txtWriter.TabIndex = 0;
 		// 
 		// label1
 		// 
@@ -208,30 +223,30 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.label1.TabIndex = 0;
 		this.label1.Text = "Verfasser:";
 		// 
-		// tabEinstellungen
+		// tabSettings
 		// 
-		this.tabEinstellungen.BackColor = System.Drawing.Color.Transparent;
-		this.tabEinstellungen.Controls.Add(this.chkKommentartextGruppieren);
-		this.tabEinstellungen.Location = new System.Drawing.Point(4, 22);
-		this.tabEinstellungen.Name = "tabEinstellungen";
-		this.tabEinstellungen.Padding = new System.Windows.Forms.Padding(3);
-		this.tabEinstellungen.Size = new System.Drawing.Size(418, 331);
-		this.tabEinstellungen.TabIndex = 1;
-		this.tabEinstellungen.Text = "Einstellungen";
+		this.tabSettings.BackColor = System.Drawing.Color.Transparent;
+		this.tabSettings.Controls.Add(this.chkCommentTextGroup);
+		this.tabSettings.Location = new System.Drawing.Point(4, 22);
+		this.tabSettings.Name = "tabSettings";
+		this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
+		this.tabSettings.Size = new System.Drawing.Size(418, 331);
+		this.tabSettings.TabIndex = 1;
+		this.tabSettings.Text = "Einstellungen";
 		// 
-		// chkKommentartextGruppieren
+		// chkCommentTextGroup
 		// 
-		this.chkKommentartextGruppieren.AutoSize = true;
-		this.chkKommentartextGruppieren.Checked = true;
-		this.chkKommentartextGruppieren.CheckState = System.Windows.Forms.CheckState.Checked;
-		this.chkKommentartextGruppieren.Location = new System.Drawing.Point(23, 35);
-		this.chkKommentartextGruppieren.Name = "chkKommentartextGruppieren";
-		this.chkKommentartextGruppieren.Size = new System.Drawing.Size(246, 17);
-		this.chkKommentartextGruppieren.TabIndex = 0;
-		this.chkKommentartextGruppieren.Text = "Symbol and Kommentartext gruppiert platzieren";
-		this.chkKommentartextGruppieren.UseVisualStyleBackColor = true;
+		this.chkCommentTextGroup.AutoSize = true;
+		this.chkCommentTextGroup.Checked = true;
+		this.chkCommentTextGroup.CheckState = System.Windows.Forms.CheckState.Checked;
+		this.chkCommentTextGroup.Location = new System.Drawing.Point(23, 35);
+		this.chkCommentTextGroup.Name = "chkCommentTextGroup";
+		this.chkCommentTextGroup.Size = new System.Drawing.Size(246, 17);
+		this.chkCommentTextGroup.TabIndex = 0;
+		this.chkCommentTextGroup.Text = "Symbol and Commenttext gruppiert platzieren";
+		this.chkCommentTextGroup.UseVisualStyleBackColor = true;
 		// 
-		// frmInsertKommentar
+		// frmInsertComment
 		// 
 		this.AcceptButton = this.btnOK;
 		this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,62 +259,62 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 		this.MaximizeBox = false;
 		this.MinimizeBox = false;
-		this.Name = "frmInsertKommentar";
+		this.Name = "frmInsertComment";
 		this.ShowInTaskbar = false;
 		this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 		this.Text = "InsertComment";
-		this.Load += new System.EventHandler(this.frmInsertKommentar_Load);
+		this.Load += new System.EventHandler(this.frmInsertComment_Load);
 		this.tabControl1.ResumeLayout(false);
-		this.tabKommentar.ResumeLayout(false);
-		this.tabKommentar.PerformLayout();
-		this.tabEinstellungen.ResumeLayout(false);
-		this.tabEinstellungen.PerformLayout();
+		this.tabComment.ResumeLayout(false);
+		this.tabComment.PerformLayout();
+		this.tabSettings.ResumeLayout(false);
+		this.tabSettings.PerformLayout();
 		this.ResumeLayout(false);
 
 	}
 
-	public frmInsertKommentar()
+	public frmInsertComment()
 	{
 		InitializeComponent();
 	}
 
-	#endregion
+    #endregion
 
-	//Menüpunkt anlegen
-	[DeclareMenu()]
+    //Create menu item
+    [DeclareMenu()]
 	public void Comment_Menu()
 	{
 		Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
-		oMenu.AddMenuItem("Kommentar einfügen", "DialogInsertComment", "Kommentar einfügen wird ausgeführt", 35381, 0, false, false);
+		oMenu.AddMenuItem("Comment insert", "DialogInsertComment", "Comment insert is running", 35381, 0, false, false);
 	}
 
-	//Action um die Form aufzurufen
-	[DeclareAction("DialogInsertComment")]
+    //Action to call the form
+    [DeclareAction("DialogInsertComment")]
 	public void DialogInsertComment_action()
 	{
-		frmInsertKommentar frm = new frmInsertKommentar();
+		frmInsertComment frm = new frmInsertComment();
 		frm.ShowDialog();
 		return;
 	}
 
 	//Form_Load
-	private void frmInsertKommentar_Load(object sender, System.EventArgs e)
+	private void frmInsertComment_Load(object sender, System.EventArgs e)
 	{
-		Text = "Einfügen";
+		Text = "insert";
 
-		//Verfasser voreinstellen
+        //Preset the author
 #if DEBUG
-		txtVerfasser.Text = "FrankS";
+        txtWriter.Text = "FrankS";
 #else
 
 		UserRights oUserRights = new UserRights();
-		txtVerfasser.Text = oUserRights.GetUser();
+		txtWriter.Text = oUserRights.GetUser();
 #endif
-		//Status voreinstellen
-		cBStatus.Text = "kein Status";
+		//Status preset
+		cBStatus.Text = "no Status";
 
-		//Eingabe auf Kommentartext stellen
-		txtKommentartext.Select();
+        //Input to comment text
+        txtCommentext.Select();
 	}
 
 	//Button Abort Click
@@ -311,38 +326,41 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 	//Button OK Click
 	private void btnOK_Click(object sender, System.EventArgs e)
 	{
-		//Ebene des Kommentar (A411 = 519(EPLAN519, Grafik.Kommentare))
-		string sEbene = "519";
+        //Level of Comment(A411 = 519(EPLAN519, Graphics.Comment))
 
-		//Linientyp des Kommentar (A412 = L(Layer) / 0(durchgezogen) / 41(~~~~~))
-		string sLinientyp = "41";
+        string sEbene = "519";
 
-		//Musterlänge des Kommentar (A415 = L(Layer) / -1.5(1,50 mm) / -32(32,00 mm))
-		string sMusterlänge = "-1.5";
+        //Linetype of Comment(A412 = L(Layer) / 0(solid) / 41(~~~~~))
 
-		//Farbe des Kommentar (A413 = 0(schwarz) / 1(rot) / 2(gelb) / 3(hellgrün) / 4(hellblau) / 5(dunkelblau) / 6(violett) / 8(weiss) / 40(orange))
-		string sFarbe = "40";
+        string sLinientyp = "41";
 
-		//Verfasser (A2521)
-		string sVerfasser = txtVerfasser.Text;
+        //Pattern length of the comment(A415 = L(layer) / -1.5(1.50 mm) / -32(32.00 mm))
+        string sMusterlänge = "-1.5";
 
-		//Erstellungsdatum (A2524)
-		string sErstellungsdatum = DateTimeToUnixTimestamp(dTPErstellungsdatum.Value).ToString(); // DateTime Wert nach Unix Timestamp Format wandeln
+        //Comment color (A413 = 0(black) / 1(red) / 2(yellow) / 3(light green) / 4(light blue) / 5(dark blue) / 6(violet) / 8(white) / 40(orange))
+        string sFarbe = "40";
 
-		//Kommentartext (A511)
-		string sKommentartext = txtKommentartext.Text;
-		if (sKommentartext.EndsWith(Environment.NewLine)) //Kommentar darf nicht mit Zeilenumbruch enden
-		{ sKommentartext = sKommentartext.Substring(0, sKommentartext.Length - 2); }
-		sKommentartext = sKommentartext.Replace(Environment.NewLine, "&#10;"); //Kommentar Zeilenumbruch umwandeln
-		sKommentartext = "??_??@" + sKommentartext; //Kommentar MultiLanguage String
-		if (!sKommentartext.EndsWith(";")) //Kommentar muss mit ";" enden
-		{ sKommentartext += ";"; }
+        //Author (A2521)
+        string sVerfasser = txtWriter.Text;
 
-		//Status, (A2527 = 0(kein Status) / 1(Akzeptiert) / 2(Abgelehnt) / 3(Abgebrochen) / 4(Beendet))
-		string sStatus = cBStatus.SelectedIndex.ToString();
+		//Creation Date (A2524)
+		string sCreationDate = DateTimeToUnixTimestamp(dCreationDate.Value).ToString(); // Convert DateTime value to Unix Timestamp format
 
-		//Pfad and Dateiname der Temp.datei
-		string sTempFile;
+        //Comment Text (A511)
+        string sCommenttext = txtCommentext.Text;
+		if (sCommenttext.EndsWith(Environment.NewLine)) //Comment can not end with a line break
+ 
+        { sCommenttext = sCommenttext.Substring(0, sCommenttext.Length - 2); }
+		sCommenttext = sCommenttext.Replace(Environment.NewLine, "&#10;"); //Comment Convert line break
+        sCommenttext = "??_??@" + sCommenttext; //Comment MultiLanguage String
+		if (!sCommenttext.EndsWith(";")) //Comment must be with ";" end up
+        { sCommenttext += ";"; }
+
+        //Status, (A2527 = 0 (no status) / 1 (Accepted) / 2 (Declined) / 3 (Canceled) / 4 (Finished))
+        string sStatus = cBStatus.SelectedIndex.ToString();
+
+        //Path and filename of the Temp.file
+        string sTempFile;
 #if DEBUG
 		sTempFile = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\tmpInsertComment.ema";
 #else
@@ -352,28 +370,28 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		settings.Indent = true;
 		XmlWriter writer = XmlWriter.Create(sTempFile, settings);
 
-		//Makrodatei Inhalt
-		writer.WriteRaw("\n<EplanPxfRoot Name=\"#Kommentar\" Type=\"WindowMacro\" Version=\"2.2.6360\" PxfVersion=\"1.23\" SchemaVersion=\"1.7.6360\" Source=\"\" SourceProject=\"\" Description=\"\" ConfigurationFlags=\"0\" NumMainObjects=\"0\" NumProjectSteps=\"0\" NumMDSteps=\"0\" Custompagescaleused=\"true\" StreamSchema=\"EBitmap,BaseTypes,2,1,2;EPosition3D,BaseTypes,0,3,2;ERay3D,BaseTypes,0,4,2;EStreamableVector,BaseTypes,0,5,2;DMNCDataSet,TrDMProject,1,20,2;DMNCDataSetVector,TrDMProject,1,21,2;DMPlaceHolderRuleData,TrDMProject,0,22,2;Arc3d@W3D,W3dBaseGeometry,0,36,2;Box3d@W3D,W3dBaseGeometry,0,37,2;Circle3d@W3D,W3dBaseGeometry,0,38,2;Color@W3D,W3dBaseGeometry,0,39,2;ContourPlane3d@W3D,W3dBaseGeometry,0,40,2;CTexture@W3D,W3dBaseGeometry,0,41,2;CTextureMap@W3D,W3dBaseGeometry,0,42,2;Line3d@W3D,W3dBaseGeometry,0,43,2;Linetype@W3D,W3dBaseGeometry,0,44,2;Material@W3D,W3dBaseGeometry,3,45,2;Path3d@W3D,W3dBaseGeometry,0,46,2;Mesh3dX@W3D,W3dMeshModeller,2,47,2;MeshBox@W3D,W3dMeshModeller,5,48,2;MeshMate@W3D,W3dMeshModeller,7,49,2;MeshMateFace@W3D,W3dMeshModeller,1,50,2;MeshMateGrid@W3D,W3dMeshModeller,8,51,2;MeshMateGridLine@W3D,W3dMeshModeller,1,52,2;MeshMateLine@W3D,W3dMeshModeller,1,53,2;MeshText3dX@W3D,W3dMeshModeller,0,55,2;BaseTextLine@W3D,W3dMeshModeller,2,56,2;Mesh3d@W3D,W3dMeshModeller,8,57,2;MeshEdge3d@W3D,W3dMeshModeller,0,58,2;MeshFace3d@W3D,W3dMeshModeller,2,59,2;MeshPoint3d@W3D,W3dMeshModeller,1,60,2;MeshPolygon3d@W3D,W3dMeshModeller,1,61,2;MeshSimpleTextureTriangle3d@W3D,W3dMeshModeller,2,62,2;MeshSimpleTriangle3d@W3D,W3dMeshModeller,1,63,2;MeshTriangle3d@W3D,W3dMeshModeller,2,64,2;MeshTriangleFace3d@W3D,W3dMeshModeller,0,65,2;MeshTriangleFaceEdge3D@W3D,W3dMeshModeller,0,66,2\">");
+        //Macro file content
+        writer.WriteRaw("\n<EplanPxfRoot Name=\"#Comment\" Type=\"WindowMacro\" Version=\"2.2.6360\" PxfVersion=\"1.23\" SchemaVersion=\"1.7.6360\" Source=\"\" SourceProject=\"\" Description=\"\" ConfigurationFlags=\"0\" NumMainObjects=\"0\" NumProjectSteps=\"0\" NumMDSteps=\"0\" Custompagescaleused=\"true\" StreamSchema=\"EBitmap,BaseTypes,2,1,2;EPosition3D,BaseTypes,0,3,2;ERay3D,BaseTypes,0,4,2;EStreamableVector,BaseTypes,0,5,2;DMNCDataSet,TrDMProject,1,20,2;DMNCDataSetVector,TrDMProject,1,21,2;DMPlaceHolderRuleData,TrDMProject,0,22,2;Arc3d@W3D,W3dBaseGeometry,0,36,2;Box3d@W3D,W3dBaseGeometry,0,37,2;Circle3d@W3D,W3dBaseGeometry,0,38,2;Color@W3D,W3dBaseGeometry,0,39,2;ContourPlane3d@W3D,W3dBaseGeometry,0,40,2;CTexture@W3D,W3dBaseGeometry,0,41,2;CTextureMap@W3D,W3dBaseGeometry,0,42,2;Line3d@W3D,W3dBaseGeometry,0,43,2;Linetype@W3D,W3dBaseGeometry,0,44,2;Material@W3D,W3dBaseGeometry,3,45,2;Path3d@W3D,W3dBaseGeometry,0,46,2;Mesh3dX@W3D,W3dMeshModeller,2,47,2;MeshBox@W3D,W3dMeshModeller,5,48,2;MeshMate@W3D,W3dMeshModeller,7,49,2;MeshMateFace@W3D,W3dMeshModeller,1,50,2;MeshMateGrid@W3D,W3dMeshModeller,8,51,2;MeshMateGridLine@W3D,W3dMeshModeller,1,52,2;MeshMateLine@W3D,W3dMeshModeller,1,53,2;MeshText3dX@W3D,W3dMeshModeller,0,55,2;BaseTextLine@W3D,W3dMeshModeller,2,56,2;Mesh3d@W3D,W3dMeshModeller,8,57,2;MeshEdge3d@W3D,W3dMeshModeller,0,58,2;MeshFace3d@W3D,W3dMeshModeller,2,59,2;MeshPoint3d@W3D,W3dMeshModeller,1,60,2;MeshPolygon3d@W3D,W3dMeshModeller,1,61,2;MeshSimpleTextureTriangle3d@W3D,W3dMeshModeller,2,62,2;MeshSimpleTriangle3d@W3D,W3dMeshModeller,1,63,2;MeshTriangle3d@W3D,W3dMeshModeller,2,64,2;MeshTriangleFace3d@W3D,W3dMeshModeller,0,65,2;MeshTriangleFaceEdge3D@W3D,W3dMeshModeller,0,66,2\">");
 		writer.WriteRaw("\n <MacroVariant MacroFuncType=\"1\" VariantId=\"0\" ReferencePoint=\"64/248/0\" Version=\"2.2.6360\" PxfVersion=\"1.23\" SchemaVersion=\"1.7.6360\" Source=\"\" SourceProject=\"\" Description=\"\" ConfigurationFlags=\"0\" DocumentType=\"1\" Customgost=\"0\">");
 		writer.WriteRaw("\n  <O4 Build=\"6360\" A1=\"4/18\" A3=\"0\" A13=\"0\" A14=\"0\" A47=\"1\" A48=\"1362057551\" A50=\"1\" A59=\"1\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A431=\"1\" A1101=\"17\" A1102=\"\" A1103=\"\">");
 
-		//wenn gruppiert sein soll
-		if (chkKommentartextGruppieren.Checked == true)
+        //if you want to group
+        if (chkCommentTextGroup.Checked == true)
 		{
 			writer.WriteRaw("\n  <O26 Build=\"6360\" A1=\"26/128740\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A431=\"1\">");
 		}
-		//Eigenschaften Kommentar
-		writer.WriteRaw("\n  <O165 Build=\"6360\" A1=\"165/128741\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"" + sLinientyp + "\" A413=\"" + sFarbe + "\" A414=\"0.352777238812552\" A415=\"" + sMusterlänge + "\" A416=\"0\" A501=\"64/248\" A503=\"0\" A504=\"0\" A506=\"22\" A511=\"" + sKommentartext + "\" A2521=\"" + sVerfasser + "\" A2522=\"\" A2523=\"\" A2524=\"" + sErstellungsdatum + "\" A2525=\"" + sErstellungsdatum + "\" A2526=\"2\" A2527=\"" + sStatus + "\" A2528=\"0\" A2529=\"0\" A2531=\"0\" A2532=\"0\" A2533=\"64/248;70.349110320284/254.349110320285\" A2534=\"2\" A2539=\"0\" A2540=\"0\">");
+        //Characteristics Comment
+        writer.WriteRaw("\n  <O165 Build=\"6360\" A1=\"165/128741\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"" + sLinientyp + "\" A413=\"" + sFarbe + "\" A414=\"0.352777238812552\" A415=\"" + sMusterlänge + "\" A416=\"0\" A501=\"64/248\" A503=\"0\" A504=\"0\" A506=\"22\" A511=\"" + sCommenttext + "\" A2521=\"" + sVerfasser + "\" A2522=\"\" A2523=\"\" A2524=\"" + sCreationDate + "\" A2525=\"" + sCreationDate + "\" A2526=\"2\" A2527=\"" + sStatus + "\" A2528=\"0\" A2529=\"0\" A2531=\"0\" A2532=\"0\" A2533=\"64/248;70.349110320284/254.349110320285\" A2534=\"2\" A2539=\"0\" A2540=\"0\">");
 		writer.WriteRaw("\n  <S54x505 A961=\"L\" A962=\"L\" A963=\"0\" A964=\"L\" A965=\"0\" A966=\"0\" A967=\"0\" A968=\"0\" A969=\"0\" A4000=\"L\" A4001=\"L\" A4013=\"0\"/>");
 		writer.WriteRaw("\n  </O165>");
 
-		//Eigenschaften Text
-		writer.WriteRaw("\n  <O30 Build=\"6360\" A1=\"30/128742\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"L\" A413=\"L\" A414=\"L\" A415=\"L\" A416=\"0\" A501=\"72/248\" A503=\"0\" A504=\"0\" A506=\"0\" A511=\"" + sKommentartext + "\">");
+        //Characteristics Text
+        writer.WriteRaw("\n  <O30 Build=\"6360\" A1=\"30/128742\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"L\" A413=\"L\" A414=\"L\" A415=\"L\" A416=\"0\" A501=\"72/248\" A503=\"0\" A504=\"0\" A506=\"0\" A511=\"" + sCommenttext + "\">");
 		writer.WriteRaw("\n  <S54x505 A961=\"L\" A962=\"L\" A963=\"0\" A964=\"L\" A965=\"0\" A966=\"0\" A967=\"0\" A968=\"0\" A969=\"0\" A4000=\"L\" A4001=\"L\" A4013=\"0\"/>");
 		writer.WriteRaw("\n  </O30>");
 
-		//wenn gruppiert sein soll
-		if (chkKommentartextGruppieren.Checked == true)
+        //Ff you want to group
+        if (chkCommentTextGroup.Checked == true)
 		{
 			writer.WriteRaw("\n  </O26>");
 		}
@@ -393,9 +411,9 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		writer.Flush();
 		writer.Close();
 
-		//Makro einfügen
+        //Insert macro
 #if DEBUG
-		MessageBox.Show(sTempFile);
+        MessageBox.Show(sTempFile);
 #else
 		CommandLineInterpreter oCli = new CommandLineInterpreter();
 		ActionCallingContext oAcc = new ActionCallingContext();
@@ -405,36 +423,36 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		oCli.Execute("XGedStartInteractionAction", oAcc);
 #endif
 
-		//Beenden
-		Close();
+        //Break up
+        Close();
 		return;
 	}
 
-	// <summary>
-	// Methods to convert Unix time stamp to DateTime
-	// </summary>
-	// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
-	// <returns>Return DateTime</returns>
-	//
-	// Beispiel:
-	// convert given Unix time stamp to DateTime and update dateTimePicker value
-	//	dateTimePicker1.Value = UnixTimestampToDateTime(181913235);
-	public DateTime UnixTimestampToDateTime(long _UnixTimeStamp)
+    // <summary>
+    // Methods to convert Unix time stamp to DateTime
+    // </ summary>
+    // <param name = "_ UnixTimeStamp"> Unix time stamp to convert </ param>
+    // <returns> Return DateTime </ returns>
+    //
+    // Example:
+    // convert given Unix time stamp to DateTime and update dateTimePicker value
+    // dateTimePicker1.Value = UnixTimestampToDateTime (181913235);
+    public DateTime UnixTimestampToDateTime(long _UnixTimeStamp)
 	{
 		return (new DateTime(1970, 1, 1, 1, 0, 0)).AddSeconds(_UnixTimeStamp);
 
 	}
 
-	// <summary>
-	// Methods to convert DateTime to Unix time stamp
-	// </summary>
-	// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
-	// <returns>Return Unix time stamp as long type</returns>
-	// 
-	// Beispiel:
-	// Convert current DateTime in Unix time stamp
-	//	Console.WriteLine("Current unix time stamp is : " + DateTimeToUnixTimestamp(DateTime.Now).ToString());
-	public long DateTimeToUnixTimestamp(DateTime _DateTime)
+    // <summary>
+    // Methods to convert DateTime to Unix time stamp
+    // </ summary>
+    // <param name = "_ UnixTimeStamp"> Unix time stamp to convert </ param>
+    // <returns> Return Unix time stamp as long type </ returns>
+    //
+    // Example:
+    // Convert current DateTime to Unix time stamp
+    // Console.WriteLine ("Current unix time stamp is:" + DateTimeToUnixTimestamp (DateTime.Now) .ToString ());
+    public long DateTimeToUnixTimestamp(DateTime _DateTime)
 	{
 		TimeSpan _UnixTimeSpan = (_DateTime - new DateTime(1970, 1, 1, 1, 0, 0));
 		return (long)_UnixTimeSpan.TotalSeconds;

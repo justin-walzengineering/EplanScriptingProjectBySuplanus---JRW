@@ -1,5 +1,5 @@
 ﻿///////////////////////////////////////////////////////
-//                    Abbruchstellen
+//                    InterruptionPoint
 ///////////////////////////////////////////////////////
 //  Ersteller:  Weiher Johann
 //  Datum:      2010-03-03
@@ -15,17 +15,34 @@
 //	ePlanus.de - Scripting in Eplan ist einfach (toll)
 ///////////////////////////////////////////////////////
 
+////////////////////////////////////////////////// /////
+// break points
+////////////////////////////////////////////////// /////
+// Creator: Weiher Johann
+// Date: 2010-03-03
+////////////////////////////////////////////////// /////
+//
+// Installation:
+// (- paths for temp file / macros can be adjusted in the script line 1989 + 1990)
+// - Copy the contents of the "Macros" folder into the macro directory (company)
+// - load script ...
+//	- Have fun :)
+//
+////////////////////////////////////////////////// /////
+// ePlanus.de - Scripting in Eplan is easy (great)
+////////////////////////////////////////////////// /////
+
 using System.IO;
 using System.Windows.Forms;
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Base;
 using Eplan.EplApi.Scripting;
 
-public class FrmAbbruchstellen : System.Windows.Forms.Form
+public class FRMTerminationPoints : System.Windows.Forms.Form
 
 {
     #region Form
-    public FrmAbbruchstellen()
+    public FRMTerminationPoints()
     {
         InitializeComponent();
     }
@@ -37,7 +54,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
     private System.Windows.Forms.ListBox lbV11;
     private System.Windows.Forms.Button btnOK;
     private System.Windows.Forms.Label lblManInput;
-    private System.Windows.Forms.ComboBox cbMakro;
+    private System.Windows.Forms.ComboBox cbMacro;
     private System.Windows.Forms.GroupBox grpV1;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.ListBox lbV14;
@@ -122,7 +139,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.lbV11 = new System.Windows.Forms.ListBox();
         this.btnOK = new System.Windows.Forms.Button();
         this.lblManInput = new System.Windows.Forms.Label();
-        this.cbMakro = new System.Windows.Forms.ComboBox();
+        this.cbMacro = new System.Windows.Forms.ComboBox();
         this.grpV1 = new System.Windows.Forms.GroupBox();
         this.lbV14 = new System.Windows.Forms.ListBox();
         this.label1 = new System.Windows.Forms.Label();
@@ -470,11 +487,11 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.lblManInput.TabIndex = 52;
         this.lblManInput.Text = "Manuelle Eingabe:";
         // 
-        // cbMakro
+        // cbMacro
         // 
-        this.cbMakro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.cbMakro.FormattingEnabled = true;
-        this.cbMakro.Items.AddRange(new object[] {
+        this.cbMacro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        this.cbMacro.FormattingEnabled = true;
+        this.cbMacro.Items.AddRange(new object[] {
             "1pol",
             "1pol (Left)",
             "1pol (Right)",
@@ -499,12 +516,12 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
             "5pol (Left)",
             "5pol (Right)",
             "5pol (ganz)"});
-        this.cbMakro.Location = new System.Drawing.Point(119, 650);
-        this.cbMakro.MaxDropDownItems = 100;
-        this.cbMakro.Name = "cbMakro";
-        this.cbMakro.Size = new System.Drawing.Size(325, 21);
-        this.cbMakro.TabIndex = 6;
-        this.cbMakro.SelectedIndexChanged += new System.EventHandler(this.cbMakro_SelectedIndexChanged);
+        this.cbMacro.Location = new System.Drawing.Point(119, 650);
+        this.cbMacro.MaxDropDownItems = 100;
+        this.cbMacro.Name = "cbMacro";
+        this.cbMacro.Size = new System.Drawing.Size(325, 21);
+        this.cbMacro.TabIndex = 6;
+        this.cbMacro.SelectedIndexChanged += new System.EventHandler(this.cbMacro_SelectedIndexChanged);
         // 
         // grpV1
         // 
@@ -1923,7 +1940,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.lblV53.TabIndex = 78;
         this.lblV53.Text = "→";
         // 
-        // FrmAbbruchstellen
+        // FRMTerminationPoints
         // 
         this.AcceptButton = this.btnOK;
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1953,17 +1970,17 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.Controls.Add(this.grpV2);
         this.Controls.Add(this.label1);
         this.Controls.Add(this.grpV1);
-        this.Controls.Add(this.cbMakro);
+        this.Controls.Add(this.cbMacro);
         this.Controls.Add(this.btnOK);
         this.Controls.Add(this.btnCancel);
         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
         this.MaximizeBox = false;
         this.MinimizeBox = false;
-        this.Name = "FrmAbbruchstellen";
+        this.Name = "FRMTerminationPoints";
         this.ShowIcon = false;
         this.ShowInTaskbar = false;
         this.Text = "Abbruchstelle einfügen";
-        this.Load += new System.EventHandler(this.FrmAbbruchstellen_Load);
+        this.Load += new System.EventHandler(this.FRMTerminationPoints_Load);
         this.grpV1.ResumeLayout(false);
         this.grpV1.PerformLayout();
         this.grpV2.ResumeLayout(false);
@@ -1984,19 +2001,19 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
 
     # endregion // Code für das Formular
 
-    public string sMacropath = PathMap.SubstitutePath("$(MD_MACROS)") + @"\Verbindungen\Potenziale\";
-    public string sTemp = @"C:\Programme\EPLAN\TEMP\temp.ema";
+    public string sMacropath = PathMap.SubstitutePath("$(MD_MACROS)") + @"\Links\Potential\";
+    public string sTemp = @"C:\Program\EPLAN\TEMP\temp.ema";
     public string sVariantOut = "";
     public string sMacroOut = "";
 
-    [DeclareAction("Abbruchstellen")]
+    [DeclareAction("InterruptionPoint")]
 
     ////////////////////////////////////////////////
     // Open dialog
     ////////////////////////////////////////////////
-    public void AbbruchstellenVoid()
+    public void InterruptionPointVoid()
     {
-        FrmAbbruchstellen Frm1 = new FrmAbbruchstellen();
+        FRMTerminationPoints Frm1 = new FRMTerminationPoints();
         Frm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         Frm1.ShowDialog();
         return;
@@ -2005,10 +2022,10 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
     ////////////////////////////////////////////////
     // Loading dialog
     ////////////////////////////////////////////////
-    private void FrmAbbruchstellen_Load(object sender, System.EventArgs e)
+    private void FRMTerminationPoints_Load(object sender, System.EventArgs e)
     {
         txtV1.Select();
-        cbMakro.Text = "1pol";
+        cbMacro.Text = "1pol";
         cbVariant.Text = "A";
 
 
@@ -2047,7 +2064,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         }
         else
         {
-            MessageBox.Show("Datei nicht gefanden\n" + sMacroOut);
+            MessageBox.Show("File not found\n" + sMacroOut);
         }
 
         // Action
@@ -2338,11 +2355,11 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         txtV5.Text = txtV5.Text + lbV54.SelectedItem.ToString();
     }
 
-    private void cbMakro_SelectedIndexChanged(object sender, System.EventArgs e)
+    private void cbMacro_SelectedIndexChanged(object sender, System.EventArgs e)
     {
         #region Makro
         // Makro
-        switch (cbMakro.Text)
+        switch (cbMacro.Text)
         {
             case "1pol":
                 sMacroOut = sMacropath + "1pol.ema";
@@ -2912,9 +2929,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         }
         else
         {
-            MessageBox.Show("Datei nicht gefanden\n" + sMacroOut);
+            MessageBox.Show("File not found\n" + sMacroOut);
         }
-        switch (cbMakro.Text)
+        switch (cbMacro.Text)
         {
                     case "":
                 grpV1.Enabled = false;
@@ -3039,23 +3056,23 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         uint intIDUntermenue1;                                         // MenuID
         Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
         intIDUntermenue1 = oMenu.AddMainMenu(
-            "ePlanus",                                                     // HauptMenuName
-            "Hilfe",                                                       // neben Menüpunkt...
-            "< ePlanus.de >",                                              // Menüpunktname
+            "ePlanus",                                                     // Main menu name
+            "Help",                                                       // Next to menu item...
+            "< ePlanus.de >",                                              // Menu Item Name
             "ePlanus",                                                     // Action
-            "ePlanus.de - Scripting in Eplan ist einfach (toll)",          // Statustext
-            1                                                              // Hinter Menüpunkt x
+            "ePlanus.de - Scripting in Eplan is easy (great)",          // Statustext
+            1                                                              // Behind menu item
         );
 
-        // Untermenüpunkte
+        // Sub menu items
         oMenu.AddMenuItem(
-            "Abbruchstellenkonfigurator",                                            // Menüpunktname
-            "Abbruchstellen",                                             // Action
-            "ePlanus - Abbruchstellenkonfigurator",                         // Statustext
-            intIDUntermenue1,                                               // Menü-ID
-            1,                                                              // 1 = Hinter Menüpunkt X
-            false,                                                          // Seperator davor
-            false                                                           // Seperator dahinter
+            "InterruptionPointConfigurator",                                            // Main menu name
+            "InterruptionPoint",                                             // Action
+            "ePlanus - InterruptionPointConfigurator",                         // Statustext
+            intIDUntermenue1,                                               // Menu-ID
+            1,                                                              // 1 = Behind menu item
+            false,                                                          // separator in front of it
+            false                                                           // separator behind it
         );
 
     }

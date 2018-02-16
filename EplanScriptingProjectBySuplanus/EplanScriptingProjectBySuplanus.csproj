@@ -114,6 +114,9 @@
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Get.cs" />
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Set.cs" />
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Settings.cs" />
+    <Compile Include="PdfExportAssistent\PdfExportAssistent-En.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PlaceHolderMultiAddRecord\PlaceHolderMultiAddRecord.cs" />
     <Compile Include="PlaceHolderTranslateAction\PlaceHolderTranslateAction.cs" />
     <Compile Include="ScriptTest\ScriptTest.cs" />
@@ -164,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertUniversalPart3D\InsertUniversalPart3D.resx">
       <DependentUpon>InsertUniversalPart3D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PdfExportAssistent\PdfExportAssistent-En.resx">
+      <DependentUpon>PdfExportAssistent-En.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

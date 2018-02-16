@@ -9,6 +9,15 @@ public class PageChangeZoomAll
 // 2010-08-04   nairolf Script erstellt
 // 2011-05-07   nairolf Erweiterung: Zoom bei Seitenwechsel bei Sprung zu Gegenstück
 // *********************************************************************************
+
+// ********************************************************************************************
+// Function: view "full page view" when paging
+// ********************************************************************************************
+// change history:
+// 2010-08-04 nairolf script created
+// 2011-05-07 nairolf extension: Zoom at page change at jump to counterpart
+// ********************************************************************************************
+
 {
     [DeclareEventHandler("onActionStart.String.XGedNextPageAction")]
     public bool MyEventHandlerFunction1(IEventParameter iEventParameter)
