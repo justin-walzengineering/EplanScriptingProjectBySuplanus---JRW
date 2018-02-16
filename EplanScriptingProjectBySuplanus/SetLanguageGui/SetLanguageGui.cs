@@ -137,15 +137,15 @@ public class SetLanguageGui : System.Windows.Forms.Form
     private ColumnHeader columnHeader1;
 
     // <summary>
-    // Erforderliche Designervariable.
+    // Required designer variable.
     // </summary>
     private System.ComponentModel.IContainer components = null;
 
     // <summary>
-    // Verwendete Ressourcen bereinigen.
+    // Clean used resources.
     // </summary>
-    // <param name="disposing">True, wenn verwaltete Ressourcen
-    // gelöscht werden sollen; andernfalls False.</param>
+    // <param name="disposing">True, when managed resources
+    // to be deleted; otherwise False. </ param>
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -156,9 +156,9 @@ public class SetLanguageGui : System.Windows.Forms.Form
     }
 
     // <summary>
-    // Erforderliche Methode für die Designerunterstützung.
-    // Der Inhalt der Methode darf nicht mit dem Code-Editor
-    // geändert werden.
+    // Required method for designer support.
+    // The content of the method must not be with the code editor
+    // be changed.
     // </summary>
     private void InitializeComponent()
     {

@@ -15,7 +15,7 @@ public class RegisterScriptMenu
 		aMenu.AddMenuItem(	"alle Scripte laden",
 							"LoadScripts",
 							"lädt alle Standard-Scripte",
-							System.UInt32.Parse("35226"), 	// Menü-ID von Dienstprogramme/Scripte/Ausführen
+							System.UInt32.Parse("35226"), 	// Menü-ID von Dienstprogramme/Scripte/To Run
 							System.Int32.Parse("0"), 	// ID of the following menu. (0 for default)
 							false,
 							true);

@@ -53,14 +53,14 @@ public class FrmProjectHistory : System.Windows.Forms.Form
 
 
     //
-    // Erforderliche Designervariable.
+    // Required designer variable.
     //
     private System.ComponentModel.IContainer components = null;
 
     //
-    // Verwendete Ressourcen bereinigen.
+    // Clean used resources.
     //
-    // True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.
+    // True, when managed resources gelöscht werden sollen; andernfalls False.
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -73,8 +73,8 @@ public class FrmProjectHistory : System.Windows.Forms.Form
     #region Vom Windows Form-Designer generierter Code
 
     //
-    // Erforderliche Methode für die Designerunterstützung.
-    // Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+    // Required method for designer support.
+    // The content of the method must not be with the code editor be changed.
     //
     private void InitializeComponent()
     {

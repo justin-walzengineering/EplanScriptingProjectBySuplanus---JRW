@@ -51,15 +51,15 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 	#region Vom Windows Form-Designer generierter Code
 
 	// <summary>
-	// Erforderliche Designervariable.
+	// Required designer variable.
 	// </summary>
 	private System.ComponentModel.IContainer components = null;
 
 	// <summary>
-	// Verwendete Ressourcen bereinigen.
+	// Clean used resources.
 	// </summary>
-	// <param name="disposing">True, wenn verwaltete Ressourcen
-	// gelöscht werden sollen; andernfalls False.</param>
+	// <param name="disposing">True, when managed resources
+	// to be deleted; otherwise False. </ param>
 	protected override void Dispose(bool disposing)
 	{
 		if (disposing && (components != null))
@@ -70,9 +70,9 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 	}
 
 	// <summary>
-	// Erforderliche Methode für die Designerunterstützung.
-	// Der Inhalt der Methode darf nicht mit dem Code-Editor
-	// geändert werden.
+	// Required method for designer support.
+	// The content of the method must not be with the code editor
+	// be changed.
 	// </summary>
 	private void InitializeComponent()
 	{
@@ -356,7 +356,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			this.groupBox1.Size = new System.Drawing.Size(478, 71);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Ausführen nur";
+			this.groupBox1.Text = "To Run nur";
 			// 
 			// chkByEplanEnd
 			// 
@@ -446,7 +446,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 		if (oSettings.ExistSetting("USER.SCRIPTS.PDF_Assistent.ByProjectClose"))
 		{
 			bool bChecked = oSettings.GetBoolSetting("USER.SCRIPTS.PDF_Assistent.ByProjectClose", 1);
-			if (bChecked) //Bei ProjectClose ausführen
+			if (bChecked) //Bei ProjectClose To Run
 			{
 				PDFAssistent_SollStarten();
 			}
@@ -463,7 +463,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 		if (oSettings.ExistSetting("USER.SCRIPTS.PDF_Assistent.ByEplanEnd"))
 		{
 			bool bChecked = oSettings.GetBoolSetting("USER.SCRIPTS.PDF_Assistent.ByEplanEnd", 1);
-			if (bChecked) //Bei EplanEnd ausführen
+			if (bChecked) //Bei EplanEnd To Run
 			{
 				PDFAssistent_SollStarten();
 			}
@@ -493,7 +493,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 				}
 				if (sProjektInOrdner == sProjektOrdner) //hier vielleicht noch erweitern auf alle Unterordner (InString?)
 				{
-					PDFAssistent_ausführen();
+					PDFAssistent_To Run();
 				}
 				else
 				{
@@ -502,13 +502,13 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			}
 			else
 			{
-				PDFAssistent_ausführen();
+				PDFAssistent_To Run();
 			}
 		}
 	}
 
-	//Assistent ohne Dialog direkt ausführen (Ohne Nachfrage ausführen)
-	public void PDFAssistent_ausführen()
+	//Assistent ohne Dialog direkt To Run (Ohne Nachfrage To Run)
+	public void PDFAssistent_To Run()
 	{
 		Eplan.EplApi.Base.Settings oSettings = new Eplan.EplApi.Base.Settings();
 		if (oSettings.ExistSetting("USER.SCRIPTS.PDF_Assistent.OhneNachfrage"))
@@ -739,7 +739,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 
 			oSettings.SetBoolSetting("USER.SCRIPTS.PDF_Assistent.ByEplanEnd", chkByEplanEnd.Checked, 1); //1 = Visible = True
 
-			//Ausführen ohne Nachfrage
+			//To Run ohne Nachfrage
 			if (!oSettings.ExistSetting("USER.SCRIPTS.PDF_Assistent.OhneNachfrage"))
 			{
 				oSettings.AddBoolSetting("USER.SCRIPTS.PDF_Assistent.OhneNachfrage",
@@ -812,7 +812,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			chkByEplanEnd.Checked = oSettings.GetBoolSetting("USER.SCRIPTS.PDF_Assistent.ByEplanEnd", 1);
 		}
 
-		//Ausführen ohne Nachfrage
+		//To Run ohne Nachfrage
 		if (oSettings.ExistSetting("USER.SCRIPTS.PDF_Assistent.OhneNachfrage"))
 		{
 			chkOhneNachfrage.Checked = oSettings.GetBoolSetting("USER.SCRIPTS.PDF_Assistent.OhneNachfrage", 1);
