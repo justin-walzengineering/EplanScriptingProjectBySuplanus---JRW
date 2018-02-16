@@ -5,12 +5,13 @@
 ' für Eplan Electric P8, ab V2.1.6
 '
 '
+
 Public Class GedToggleObjectAction_Class
 
 	<DeclareEventHandler("onActionStart.String.XGedActionToggleConstructionMode")> _
 	Public Function GedActionToggleConstructionMode(ByVal iEventParameter As IEventParameter) As Long
 		Dim CLI As New CommandLineInterpreter()
-		CLI.Execute("XGedToggleObjectSnapAction") 'Objektfang
-	End Function
+        CLI.Execute("XGedToggleObjectSnapAction") 'Object Snap
+    End Function
 
 End Class

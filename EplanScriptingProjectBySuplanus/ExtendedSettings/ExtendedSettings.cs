@@ -14,16 +14,16 @@ public class frmExtendedSettings : System.Windows.Forms.Form
 
     #region Vom Windows Form-Designer generierter Code
 
-    /// <summary>
-    /// Erforderliche Designervariable.
-    /// </summary>
+    // <summary>
+    // Erforderliche Designervariable.
+    // </summary>
     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Verwendete Ressourcen bereinigen.
-    /// </summary>
-    /// <param name="disposing">True, wenn verwaltete Ressourcen
-    /// gelöscht werden sollen; andernfalls False.</param>
+    // <summary>
+    // Verwendete Ressourcen bereinigen.
+    // </summary>
+    // <param name="disposing">True, wenn verwaltete Ressourcen
+    // gelöscht werden sollen; andernfalls False.</param>
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -33,11 +33,11 @@ public class frmExtendedSettings : System.Windows.Forms.Form
         base.Dispose(disposing);
     }
 
-    /// <summary>
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor
-    /// geändert werden.
-    /// </summary>
+    // <summary>
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor
+    // geändert werden.
+    // </summary>
     private void InitializeComponent()
     {
         this.components = new System.ComponentModel.Container();
@@ -57,7 +57,7 @@ public class frmExtendedSettings : System.Windows.Forms.Form
         this.btnCancel.Name = "btnCancel";
         this.btnCancel.Size = new System.Drawing.Size(120, 23);
         this.btnCancel.TabIndex = 1;
-        this.btnCancel.Text = "Abbrechen";
+        this.btnCancel.Text = "Abort";
         this.btnCancel.UseVisualStyleBackColor = true;
         this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
         // 
@@ -91,7 +91,7 @@ public class frmExtendedSettings : System.Windows.Forms.Form
         this.chbMenuId.Size = new System.Drawing.Size(67, 17);
         this.chbMenuId.TabIndex = 3;
         this.chbMenuId.Text = "Menu ID";
-        this.tt.SetToolTip(this.chbMenuId, "Fügt Menüpunkt im Kontextmenü hinzu um die Menü ID und Ort anzuzeigen. EPLAN-Neus" +
+        this.tt.SetToolTip(this.chbMenuId, "Fügt Menüpunkt im Kontextmenü hinzu um die Menü ID and Ort anzuzeigen. EPLAN-Neus" +
                 "tart erforderlich.");
         this.chbMenuId.UseVisualStyleBackColor = true;
         // 

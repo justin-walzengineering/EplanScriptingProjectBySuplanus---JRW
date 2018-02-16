@@ -31,16 +31,16 @@ namespace EplanScriptingProjectBySuplanus.InsertUniversalPart3D
         private Label label5;
         private Label label6;
 
-        /// <summary>
-        /// Erforderliche Designervariable.
-        /// </summary>
+        // <summary>
+        // Erforderliche Designervariable.
+        // </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Verwendete Ressourcen bereinigen.
-        /// </summary>
-        /// <param name="disposing">True, wenn verwaltete Ressourcen
-        /// gelöscht werden sollen; andernfalls False.</param>
+        // <summary>
+        // Verwendete Ressourcen bereinigen.
+        // </summary>
+        // <param name="disposing">True, wenn verwaltete Ressourcen
+        // gelöscht werden sollen; andernfalls False.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -50,11 +50,11 @@ namespace EplanScriptingProjectBySuplanus.InsertUniversalPart3D
             base.Dispose(disposing);
         }
 
-        /// <summary>
-        /// Erforderliche Methode für die Designerunterstützung.
-        /// Der Inhalt der Methode darf nicht mit dem Code-Editor
-        /// geändert werden.
-        /// </summary>
+        // <summary>
+        // Erforderliche Methode für die Designerunterstützung.
+        // Der Inhalt der Methode darf nicht mit dem Code-Editor
+        // geändert werden.
+        // </summary>
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@ namespace EplanScriptingProjectBySuplanus.InsertUniversalPart3D
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 23);
             this.btnCancel.TabIndex = 21;
-            this.btnCancel.Text = "Abbrechen";
+            this.btnCancel.Text = "Abort";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -331,7 +331,7 @@ namespace EplanScriptingProjectBySuplanus.InsertUniversalPart3D
             }
             else
             {
-                MessageBox.Show("Vorlage nicht gefunden:\n" + macroFile, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vorlage nicht gefanden:\n" + macroFile, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             #endregion
 

@@ -1,2 +1,2 @@
-Wert 3	Beschreibung 3
-Wert 4	Beschreibung 4
+Value 3 Description 3
+Value 4 Description 4

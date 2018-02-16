@@ -1,2 +1,2 @@
-Wert 1	Beschreibung 1
-Wert 2	Beschreibung 2
+Value 1 Description 1
+Value 2 Description 2

@@ -7,6 +7,21 @@
 // --------------------------------------------------------------------------------------------
 // 2012-12-27   V1.0    NAIROLF Ersterstellung
 //#############################################################################################
+
+// Edited by
+// Justin R. Walz
+// 02/16/2018
+
+// Goal:
+// This will create an action that will find and replace PLC IO data.
+// This can be used when going from PLC's whose IO format is "E" and "A" to "I" and "Q", or vice versa.
+// I could not get this action to run. 
+
+// Load script in Eplan using [Utilities]>[Scripts]>[Load]
+// Then choose the file from the file location. 
+// The file will be a .cs extension. 
+
+
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Scripting;
 
@@ -18,23 +33,27 @@ public class NAIROLF_ContextMenu_ChangePLCMnemonics
     [DeclareAction("NAIROLF_ChangePLCMnemonics")]
     public void ChangePLCMnemonik(string DestMnemonik)
     {
-        //Prüfe Zielmnemonik
+        // Check target mnemonic
         if (DestMnemonik == string.Empty)
         {
-            //keine Zielmnemonik definiert
+            // No target mnemonic defined
             return;
         }
-        
-        //Zwischenablage leeren
+
+        // Empty clipboard
         System.Windows.Forms.Clipboard.Clear();
 
-        //Zwischenablage füllen
+        // Fill clipboard
         CommandLineInterpreter oCLI = new CommandLineInterpreter();
         oCLI.Execute("GfDlgMgrActionIGfWind /function:Copy");
 
-        //Mnemonik-Tausch versuchen
+        MessageBox.Show("Test 1 completed!"); // This can be used for testing to monitor that the private sub ran correctly. 
+
+        // Try mnemonic exchange
         #region change mnemonik
-               
+
+        
+
         if (System.Windows.Forms.Clipboard.ContainsText())
         {
             sSourceText = System.Windows.Forms.Clipboard.GetText();
@@ -61,7 +80,7 @@ public class NAIROLF_ContextMenu_ChangePLCMnemonics
                 }
                 catch (System.Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -80,7 +99,7 @@ public class NAIROLF_ContextMenu_ChangePLCMnemonics
         {           
             oCTXLoc.DialogName = "XPlcIoDataDlg";
             oCTXLoc.ContextMenuName = "1024";
-            oCTXMenu.AddMenuItem(oCTXLoc, "[SPS-Mnemonik tauschen]: E/A -> I/Q", "NAIROLF_ChangePLCMnemonics /DestMnemonik:IQ", false, false);
+            oCTXMenu.AddMenuItem(oCTXLoc, "[SPS-Exchange mnemonics]: E /A -> I/Q", "NAIROLF_ChangePLCMnemonics /DestMnemonik:IQ", false, false);
         }
         catch (System.Exception ex)
         {

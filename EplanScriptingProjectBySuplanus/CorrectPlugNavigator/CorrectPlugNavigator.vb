@@ -1,11 +1,19 @@
-﻿Public Class Steckerkorrigieren
+﻿Public Class CorrectPlug
 
-  <DeclareMenu()> _
- Public Sub MenuFunction()
+    ' Goal
+    ' This will allow user ability to choose Correct Plugs function inside Plugs navigator menu
+    ' Right click on Plug in navigator and see "Correct Plugs..." at bottom of pop up. 
+
+    ' Load script in Eplan using [Utilities]>[Scripts]>[Load]
+    ' Then choose the file from the file location. 
+    ' The file will be a .vb extension. 
+
+    <DeclareMenu()>
+    Public Sub MenuFunction()
 
         Dim oConMenuLoc As New Eplan.EplApi.Gui.ContextMenuLocation("XpluGVTree", "1004")
         Dim oConMenu As New Eplan.EplApi.Gui.ContextMenu()
-        OConMenu.Addmenuitem(oConMenuLoc, "Stecker korrigieren...", "XplugCallAutoCorrectionDlgAction", False, False)
+        oConMenu.Addmenuitem(oConMenuLoc, "Correct Plug...", "XplugCallAutoCorrectionDlgAction", False, False)
 
-  End Sub
+    End Sub
 End Class

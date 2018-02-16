@@ -44,7 +44,7 @@ namespace EplanScriptingProjectBySuplanus.GetCurrentScriptPath
                 return;
             }
 
-            // Not found
+            // Not foand
             value = null;
             return;
         }

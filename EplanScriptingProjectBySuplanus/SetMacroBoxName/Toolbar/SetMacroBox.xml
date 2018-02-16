@@ -31,7 +31,7 @@
        <Default>
         <Val/>
        </Default>
-       <Val>Makrokasten: Fenstermakroname setzen</Val>
+       <Val>Makrokasten: Windowmakroname setzen</Val>
       </Setting>
      </LEV3>
      <LEV3 name="AdditionalToolbar-1">

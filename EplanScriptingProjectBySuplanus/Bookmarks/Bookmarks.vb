@@ -8,13 +8,14 @@
 '                  Frank Schöneck, 04.06.2012 V1.1.0, -Eplan Versionsnummer in Bookmarks-Dateiname integriert.
 '                  Frank Schöneck, 05.06.2012 V1.1.1, -Eplan Versionsnummer wird nun aus "EPLAN.exe" (ab V2.1) oder "W3U.exe" (bis 2.0) ermittelt.
 '                  Frank Schöneck, 21.08.2012 V2.0.0, -Lesezeichen Tooltip zeigt nun den kompletten Pfad des Projektes an.
-'                                                     -Es wird nun das vorhanden sein der Projekte getestet und ggf. das Lesezeichen grau dargestellt, das Lesezeichen bleibt aber weiter aktiv (geht im ListView nicht anders)
+'                                                     -Es wird nun das vorhanden sein der Projekte getestet and ggf. das Lesezeichen grau dargestellt, das Lesezeichen bleibt aber weiter aktiv (geht im ListView nicht anders)
 '                                                     -Neuer Menüpunkt 'Akualisieren (F5)' ins Kontextmenü eingebaut (Taste F5 geht nicht im Scripting)
 '                                                     -Menüpunkt "Lesezeichen" ist nun unter "Schließen" im Projekt-Menü gewandert. (Wegen Select-Versionen)
 '                  Frank Schöneck, 08.10.2012 V2.1.0, -Lesezeichen können nun nach oben/unten verschoben werden.
 '
 ' für Eplan Electric P8, V2.0 / V2.1 / V2.2
 '
+
 Imports System.IO
 Imports System.Diagnostics
 Imports Microsoft.VisualBasic
@@ -68,19 +69,19 @@ Public Class Bookmarks
     <DeclareAction("DialogLesezeichen")> _
     Public Sub DialogLesezeichen()
 
-		' Prüfen, ob Form bereits geladen, falls nicht, jetzt laden und anzeigen
+		' Prüfen, ob Form bereits geladen, falls nicht, jetzt laden and anzeigen
         If Not FormIsLoaded("frmLesezeichen") Then
 			Dim objForm As New Form1()
 			objForm.InitializeComponent()
             objForm.Show()
         Else
 			Application.Exit() 'schon geladen deshalb beenden  (für 2 Schirm-Arbeitsplätze!!!)
-			'BringFormToFront("frmLesezeichen") 'Form in den Vordergrund bringen (für 1 Schirm-Arbeitsplätze!!!)
+			'BringFormToFront("frmLesezeichen") 'Form in den Vordergrand bringen (für 1 Schirm-Arbeitsplätze!!!)
 		End If
 
 	End Sub
 
-    'Prüft, ob eine bestimmte Form bereits geladen ist und gibt im Erfolgsfall True zurück
+    'Prüft, ob eine bestimmte Form bereits geladen ist and gibt im Erfolgsfall True zurück
     Public Function FormIsLoaded(ByVal sName As String) As Boolean
         Dim bResult As Boolean = False
 
@@ -95,13 +96,13 @@ Public Class Bookmarks
         Return (bResult)
 	End Function
 
-	'Prüft, ob eine bestimmte Form bereits geladen ist und bringt sie in den Vordergrung
+	'Prüft, ob eine bestimmte Form bereits geladen ist and bringt sie in den Vordergrung
 	Public Function BringFormToFront(ByVal sName As String)
 
 		' alle geöffneten Forms durchlauden
 		For Each oForm As Form In Application.OpenForms
 			If oForm.Name.ToLower = sName.ToLower Then
-				oForm.BringToFront() 'Form in der Vordergrund bringen
+				oForm.BringToFront() 'Form in der Vordergrand bringen
 				Exit For
 			End If
 		Next
@@ -302,9 +303,9 @@ Public Class Form1
     
 	'Maus-Taste gedrückt
 	Private Sub ListView_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles ListView.MouseDown
-        ' Bei Rechtsklick, Eintrag selektieren ContextMenü konfigurieren
+        ' Bei Rightklick, Eintrag selektieren ContextMenü konfigurieren
 
-        ' Rechtsklick!
+        ' Rightklick!
         If e.Button = Windows.Forms.MouseButtons.Right Then
             Dim Item As ListViewItem
             With ListView
@@ -335,8 +336,8 @@ Public Class Form1
 		' ToolTip aktualisieren
 		With ToolTip1
 			If .GetToolTip(sender) <> sToolTip Then
-				.AutoPopDelay = 5000 'Zeit die Tooltip sichtbar bleibt (in Millisekunden)
-				.InitialDelay = 1000 'Verzögerung (in Millisekunden)
+				.AutoPopDelay = 5000 'Zeit die Tooltip sichtbar bleibt (in Millisekanden)
+				.InitialDelay = 1000 'Verzögerung (in Millisekanden)
 				.ShowAlways = True	 'Tooltip auch anzeigen wenn Form nicht aktiv ist
 				.SetToolTip(sender, sToolTip)
 			End If
@@ -351,7 +352,7 @@ Public Class Form1
     'Form wird geladen
     Private Sub Bookmarks_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'Position und Größe aus Settings lesen
+        'Position and Größe aus Settings lesen
         Dim oSettings As New Eplan.EplApi.Base.Settings()
 		If oSettings.ExistSetting("USER.SCRIPTS.BOOKMARKS.FORMLOCATION") Then
 			Me.Top = oSettings.GetNumericSetting("USER.SCRIPTS.BOOKMARKS.FORMLOCATION", 0)
@@ -380,7 +381,7 @@ Public Class Form1
     'Form wird geschlossen
     Private Sub Bookmarks_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
 
-        'Position und Größe speichern
+        'Position and Größe speichern
         Dim oSettings As New Eplan.EplApi.Base.Settings()
 
 		If Not oSettings.ExistSetting("USER.SCRIPTS.BOOKMARKS.FORMLOCATION") Then
@@ -590,7 +591,7 @@ Public Class Form1
             .WriteStartElement("LesezeichenListe")
             'Listview abarbeiten
             For Each lvi As ListViewItem In ListView.Items
-				' Hier kommt das erste Element "Lesezeichen". Ein Lesezeichen hat einen Eintragtext und einen Odnernamen. 
+				' Hier kommt das erste Element "Lesezeichen". Ein Lesezeichen hat einen Eintragtext and einen Odnernamen. 
                 .WriteStartElement("Lesezeichen") ' <Lesezeichen
                 .WriteAttributeString("Projektname", lvi.Text)
                 .WriteAttributeString("Projektpfad", lvi.SubItems(1).Text)
@@ -599,7 +600,7 @@ Public Class Form1
             ' Nachdem das Element "LesezeichenListe" zwei Elemente "Lesezeichen" 
             ' erhalten hat, beenden wir die Ausgabe für "LesezeichenListe"... 
             .WriteEndElement() ' </Lesezeichen> 
-            ' ... und schließen das XML-Dokument (und die Datei) 
+            ' ... and schließen das XML-Dokument (and die Datei) 
             .Close() ' Document 
         End With
     End Sub
@@ -608,14 +609,14 @@ Public Class Form1
 	Public Function lvItem_Up(ByVal sender As ListView) As Boolean
 		With sender
 			If .SelectedItems.Count = 1 Then
-				' aktuellen Eintrag und Position merken
+				' aktuellen Eintrag and Position merken
 				Dim oItem As ListViewItem = .SelectedItems(0)
 				Dim index = oItem.Index
 				If index > 0 Then
 					' jetzt den markierten Eintrag löschen
 					.SelectedItems(0).Remove()
 
-					' und den "gemerkten" Eintrag eine Position weiter oben einfügen
+					' and den "gemerkten" Eintrag eine Position weiter oben einfügen
 					.Items.Insert(index - 1, oItem)
 
 					' Eintrag wieder selektieren
@@ -633,14 +634,14 @@ Public Class Form1
 	Public Function lvItem_Down(ByVal sender As ListView) As Boolean
 		With sender
 			If .SelectedItems.Count = 1 Then
-				' aktuellen Eintrag und Position merken
+				' aktuellen Eintrag and Position merken
 				Dim oItem As ListViewItem = .SelectedItems(0)
 				Dim index = oItem.Index
 				If index < .Items.Count - 1 Then
 					' jetzt den markierten Eintrag löschen
 					.SelectedItems(0).Remove()
 
-					' und den "gemerkten" Eintrag eine Position weiter oben einfügen
+					' and den "gemerkten" Eintrag eine Position weiter oben einfügen
 					.Items.Insert(index + 1, oItem)
 
 					' Eintrag wieder selektieren

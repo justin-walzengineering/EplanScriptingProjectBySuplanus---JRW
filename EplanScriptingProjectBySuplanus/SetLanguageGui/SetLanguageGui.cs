@@ -30,7 +30,7 @@ public class SetLanguageGui : System.Windows.Forms.Form
                                                 "ar_TN;Arabisch (Tunesien)",
                                                 "ar_YE;Arabisch (Jemen)",
                                                 "bg_BG;Bulgarisch",
-                                                "bs_BA;Bosnisch (Lateinisch, Bosnien und Herzegowina)",
+                                                "bs_BA;Bosnisch (Lateinisch, Bosnien and Herzegowina)",
                                                 "ca_ES;Katalanisch",
                                                 "cs_CZ;Tschechisch",
                                                 "da_DK;Dänisch",
@@ -72,7 +72,7 @@ public class SetLanguageGui : System.Windows.Forms.Form
                                                 "fr_FR;Französisch (Frankreich)",
                                                 "he_IL;Hebräisch",
                                                 "hi_IN;Hindi",
-                                                "hr_BA;Kroatisch (Bosnien und Herzegowina)",
+                                                "hr_BA;Kroatisch (Bosnien and Herzegowina)",
                                                 "hr_HR;Kroatisch",
                                                 "hu_HU;Ungarisch",
                                                 "id_ID;Indonesisch",
@@ -104,7 +104,7 @@ public class SetLanguageGui : System.Windows.Forms.Form
                                                 "sl_SI;Slowenisch",
                                                 "so_SO;Somalisch",
                                                 "sq_AL;Albanisch",
-                                                "sr_BA;Serbisch (Lateinisch, Bosnien und Herzegowina)",
+                                                "sr_BA;Serbisch (Lateinisch, Bosnien and Herzegowina)",
                                                 "sr_CY;Serbisch (Kyrillisch)",
                                                 "sr_LT;Serbisch (Lateinisch)",
                                                 "ss_SZ;Swasiländisch",
@@ -136,16 +136,16 @@ public class SetLanguageGui : System.Windows.Forms.Form
     private Button btnOk;
     private ColumnHeader columnHeader1;
 
-    /// <summary>
-    /// Erforderliche Designervariable.
-    /// </summary>
+    // <summary>
+    // Erforderliche Designervariable.
+    // </summary>
     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Verwendete Ressourcen bereinigen.
-    /// </summary>
-    /// <param name="disposing">True, wenn verwaltete Ressourcen
-    /// gelöscht werden sollen; andernfalls False.</param>
+    // <summary>
+    // Verwendete Ressourcen bereinigen.
+    // </summary>
+    // <param name="disposing">True, wenn verwaltete Ressourcen
+    // gelöscht werden sollen; andernfalls False.</param>
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -155,11 +155,11 @@ public class SetLanguageGui : System.Windows.Forms.Form
         base.Dispose(disposing);
     }
 
-    /// <summary>
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor
-    /// geändert werden.
-    /// </summary>
+    // <summary>
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor
+    // geändert werden.
+    // </summary>
     private void InitializeComponent()
     {
         this.liviLanguages = new System.Windows.Forms.ListView();

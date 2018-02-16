@@ -49,7 +49,7 @@ namespace EplanScriptingProjectBySuplanus.ToggleDeviceTag
          //BMK (sichtbar) kann nicht direkt gesetzt werden --> Umweg über ext. Bearbeiten
          oComLineInter.Execute("XMExportFunctionAction /ConfigScheme:[ESS]_MacroScriptHelper_MultiLine_DT /CompleteProject:0 /Destination:" + sQuote + sExportFileName + sQuote + "/ExecutionMode:0");
 
-         //Textedatei einlesen und ändern   
+         //Textedatei einlesen and ändern   
          #region read / change export file
          System.IO.FileInfo oFI = new System.IO.FileInfo(PathMap.SubstitutePath(sExportFileName));
          if(oFI.Exists)
@@ -123,7 +123,7 @@ namespace EplanScriptingProjectBySuplanus.ToggleDeviceTag
          else
          {
             Decider eDecision = new Decider();
-            EnumDecisionReturn eAnswer = eDecision.Decide(Eplan.EplApi.Base.EnumDecisionType.eOkDecision, "Keine temporäre Importdatei\n'" + sExportFileName  +"'\ngefunden !\n\n(Wurden passende Funktionen markiert ?)", "Eplan Decider", Eplan.EplApi.Base.EnumDecisionReturn.eOK, Eplan.EplApi.Base.EnumDecisionReturn.eOK);            
+            EnumDecisionReturn eAnswer = eDecision.Decide(Eplan.EplApi.Base.EnumDecisionType.eOkDecision, "Keine temporäre Importdatei\n'" + sExportFileName  +"'\ngefanden !\n\n(Wurden passende Funktionen markiert ?)", "Eplan Decider", Eplan.EplApi.Base.EnumDecisionReturn.eOK, Eplan.EplApi.Base.EnumDecisionReturn.eOK);            
             return false;
          }
          #endregion

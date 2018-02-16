@@ -21,7 +21,7 @@ using Eplan.EplApi.Scripting;
 
 public partial class frmPDFAssistent : System.Windows.Forms.Form
 {
-	private Button btnAbbrechen;
+	private Button btnAbort;
 	private Button btnOK;
 	private CheckBox chkEinstellungSpeichern;
 	private TabControl tabControl1;
@@ -50,16 +50,16 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 
 	#region Vom Windows Form-Designer generierter Code
 
-	/// <summary>
-	/// Erforderliche Designervariable.
-	/// </summary>
+	// <summary>
+	// Erforderliche Designervariable.
+	// </summary>
 	private System.ComponentModel.IContainer components = null;
 
-	/// <summary>
-	/// Verwendete Ressourcen bereinigen.
-	/// </summary>
-	/// <param name="disposing">True, wenn verwaltete Ressourcen
-	/// gelöscht werden sollen; andernfalls False.</param>
+	// <summary>
+	// Verwendete Ressourcen bereinigen.
+	// </summary>
+	// <param name="disposing">True, wenn verwaltete Ressourcen
+	// gelöscht werden sollen; andernfalls False.</param>
 	protected override void Dispose(bool disposing)
 	{
 		if (disposing && (components != null))
@@ -69,14 +69,14 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 		base.Dispose(disposing);
 	}
 
-	/// <summary>
-	/// Erforderliche Methode für die Designerunterstützung.
-	/// Der Inhalt der Methode darf nicht mit dem Code-Editor
-	/// geändert werden.
-	/// </summary>
+	// <summary>
+	// Erforderliche Methode für die Designerunterstützung.
+	// Der Inhalt der Methode darf nicht mit dem Code-Editor
+	// geändert werden.
+	// </summary>
 	private void InitializeComponent()
 	{
-			this.btnAbbrechen = new System.Windows.Forms.Button();
+			this.btnAbort = new System.Windows.Forms.Button();
 			this.btnOK = new System.Windows.Forms.Button();
 			this.chkEinstellungSpeichern = new System.Windows.Forms.CheckBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -109,17 +109,17 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// btnAbbrechen
+			// btnAbort
 			// 
-			this.btnAbbrechen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnAbbrechen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnAbbrechen.Location = new System.Drawing.Point(408, 273);
-			this.btnAbbrechen.Name = "btnAbbrechen";
-			this.btnAbbrechen.Size = new System.Drawing.Size(95, 24);
-			this.btnAbbrechen.TabIndex = 0;
-			this.btnAbbrechen.Text = "Abbrechen";
-			this.btnAbbrechen.UseVisualStyleBackColor = true;
-			this.btnAbbrechen.Click += new System.EventHandler(this.btnAbbrechen_Click);
+			this.btnAbort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnAbort.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnAbort.Location = new System.Drawing.Point(408, 273);
+			this.btnAbort.Name = "btnAbort";
+			this.btnAbort.Size = new System.Drawing.Size(95, 24);
+			this.btnAbort.TabIndex = 0;
+			this.btnAbort.Text = "Abort";
+			this.btnAbort.UseVisualStyleBackColor = true;
+			this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
 			// 
 			// btnOK
 			// 
@@ -295,7 +295,7 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			this.groupBox2.Size = new System.Drawing.Size(478, 77);
 			this.groupBox2.TabIndex = 5;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "und zusätzliche Bedingungen erfüllt sind";
+			this.groupBox2.Text = "and zusätzliche Bedingungen erfüllt sind";
 			// 
 			// btnProjektOrdnerAuswahl
 			// 
@@ -394,13 +394,13 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 			this.AcceptButton = this.btnOK;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.btnAbbrechen;
+			this.CancelButton = this.btnAbort;
 			this.ClientSize = new System.Drawing.Size(519, 309);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.chkEinstellungSpeichern);
 			this.Controls.Add(this.btnOK);
-			this.Controls.Add(this.btnAbbrechen);
+			this.Controls.Add(this.btnAbort);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -548,8 +548,8 @@ public partial class frmPDFAssistent : System.Windows.Forms.Form
 		ReadSettings();
 	}
 
-	//Button: Abbrechen
-	private void btnAbbrechen_Click(object sender, System.EventArgs e)
+	//Button: Abort
+	private void btnAbort_Click(object sender, System.EventArgs e)
 	{
 		Close();
 	}

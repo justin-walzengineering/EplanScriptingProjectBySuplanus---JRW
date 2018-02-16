@@ -1,9 +1,9 @@
-﻿//////////////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////
 //                    Abbruchstellen
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 //  Ersteller:  Weiher Johann
 //  Datum:      2010-03-03
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 //
 //	Installation:
 //	(- Pfade für Tempdatei/Makros kann im Script Zeile 1989+1990 angepasst werden)
@@ -11,9 +11,9 @@
 //	- Script laden...
 //	- Spaß haben :)
 //
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 //	ePlanus.de - Scripting in Eplan ist einfach (toll)
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 
 using System.IO;
 using System.Windows.Forms;
@@ -88,15 +88,15 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
     private System.Windows.Forms.Label lblV53;
 
 
-    ///
-    /// Erforderliche Designervariable.
-    ///
+    //
+    // Erforderliche Designervariable.
+    //
     private System.ComponentModel.IContainer components = null;
 
-    ///
-    /// Verwendete Ressourcen bereinigen.
-    ///
-    /// True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.
+    //
+    // Verwendete Ressourcen bereinigen.
+    //
+    // True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -108,10 +108,10 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
 
     #region Vom Windows Form-Designer generierter Code
 
-    ///
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
-    ///
+    //
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+    //
     private void InitializeComponent()
     {
         this.btnCancel = new System.Windows.Forms.Button();
@@ -185,9 +185,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.btnCancel.Name = "btnCancel";
         this.btnCancel.Size = new System.Drawing.Size(72, 24);
         this.btnCancel.TabIndex = 9;
-        this.btnCancel.Text = "Abbrechen";
+        this.btnCancel.Text = "Abort";
         this.btnCancel.UseVisualStyleBackColor = true;
-        this.btnCancel.Click += new System.EventHandler(this.btnAbbrechen_Click);
+        this.btnCancel.Click += new System.EventHandler(this.btnAbort_Click);
         // 
         // lblStatus2
         // 
@@ -476,28 +476,28 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         this.cbMakro.FormattingEnabled = true;
         this.cbMakro.Items.AddRange(new object[] {
             "1pol",
-            "1pol (links)",
-            "1pol (rechts)",
+            "1pol (Left)",
+            "1pol (Right)",
             "1pol (ganz)",
             "",
             "2pol",
-            "2pol (links)",
-            "2pol (rechts)",
+            "2pol (Left)",
+            "2pol (Right)",
             "2pol (ganz)",
             "",
             "3pol",
-            "3pol (links)",
-            "3pol (rechts)",
+            "3pol (Left)",
+            "3pol (Right)",
             "3pol (ganz)",
             "",
             "4pol",
-            "4pol (links)",
-            "4pol (rechts)",
+            "4pol (Left)",
+            "4pol (Right)",
             "4pol (ganz)",
             "",
             "5pol",
-            "5pol (links)",
-            "5pol (rechts)",
+            "5pol (Left)",
+            "5pol (Right)",
             "5pol (ganz)"});
         this.cbMakro.Location = new System.Drawing.Point(119, 650);
         this.cbMakro.MaxDropDownItems = 100;
@@ -1991,9 +1991,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
 
     [DeclareAction("Abbruchstellen")]
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Open dialog
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void AbbruchstellenVoid()
     {
         FrmAbbruchstellen Frm1 = new FrmAbbruchstellen();
@@ -2002,9 +2002,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         return;
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Loading dialog
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     private void FrmAbbruchstellen_Load(object sender, System.EventArgs e)
     {
         txtV1.Select();
@@ -2024,9 +2024,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
     }
 
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Button: OK
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void btn_OK(object sender, System.EventArgs e)
     {
         // Replace Variable
@@ -2047,7 +2047,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         }
         else
         {
-            MessageBox.Show("Datei nicht gefunden\n" + sMacroOut);
+            MessageBox.Show("Datei nicht gefanden\n" + sMacroOut);
         }
 
         // Action
@@ -2060,18 +2060,18 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         Close();
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Button Cancel
-    ////////////////////////////////////////////////////////////////////////
-    private void btnAbbrechen_Click(object sender, System.EventArgs e)
+    ////////////////////////////////////////////////
+    private void btnAbort_Click(object sender, System.EventArgs e)
     {
         Close();
         return;
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Get Variable 1
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void GetNameV1()
     {
         string slbV11 = "";
@@ -2122,9 +2122,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         txtV1.Text = txtV1.Text + lbV14.SelectedItem.ToString();
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Get Variable 2
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void GetNameV2()
     {
         string slbV21 = "";
@@ -2176,9 +2176,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         txtV2.Text = txtV2.Text + lbV24.SelectedItem.ToString();
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Get Variable 3
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void GetNameV3()
     {
         string slbV31 = "";
@@ -2230,9 +2230,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         txtV3.Text = txtV3.Text + lbV34.SelectedItem.ToString();
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Get Variable 4
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void GetNameV4()
     {
         string slbV41 = "";
@@ -2284,9 +2284,9 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         txtV4.Text = txtV4.Text + lbV44.SelectedItem.ToString();
     }
 
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     // Get Variable 5
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     public void GetNameV5()
     {
         string slbV51 = "";
@@ -2368,8 +2368,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "1pol (links)":
-                sMacroOut = sMacropath + "1pol-links.ema";
+            case "1pol (Left)":
+                sMacroOut = sMacropath + "1pol-Left.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2392,8 +2392,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "1pol (rechts)":
-                sMacroOut = sMacropath + "1pol-rechts.ema";
+            case "1pol (Right)":
+                sMacroOut = sMacropath + "1pol-Right.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2465,8 +2465,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "2pol (links)":
-                sMacroOut = sMacropath + "2pol-links.ema";
+            case "2pol (Left)":
+                sMacroOut = sMacropath + "2pol-Left.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2489,8 +2489,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "2pol (rechts)":
-                sMacroOut = sMacropath + "2pol-rechts.ema";
+            case "2pol (Right)":
+                sMacroOut = sMacropath + "2pol-Right.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2562,8 +2562,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "3pol (links)":
-                sMacroOut = sMacropath + "3pol-links.ema";
+            case "3pol (Left)":
+                sMacroOut = sMacropath + "3pol-Left.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2586,8 +2586,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "3pol (rechts)":
-                sMacroOut = sMacropath + "3pol-rechts.ema";
+            case "3pol (Right)":
+                sMacroOut = sMacropath + "3pol-Right.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2659,8 +2659,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "4pol (links)":
-                sMacroOut = sMacropath + "4pol-links.ema";
+            case "4pol (Left)":
+                sMacroOut = sMacropath + "4pol-Left.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2683,8 +2683,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = false;
 
                 break;
-            case "4pol (rechts)":
-                sMacroOut = sMacropath + "4pol-rechts.ema";
+            case "4pol (Right)":
+                sMacroOut = sMacropath + "4pol-Right.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2756,8 +2756,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = true;
 
                 break;
-            case "5pol (links)":
-                sMacroOut = sMacropath + "5pol-links.ema";
+            case "5pol (Left)":
+                sMacroOut = sMacropath + "5pol-Left.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2780,8 +2780,8 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
                 lblV53.Visible = true;
 
                 break;
-            case "5pol (rechts)":
-                sMacroOut = sMacropath + "5pol-rechts.ema";
+            case "5pol (Right)":
+                sMacroOut = sMacropath + "5pol-Right.ema";
 
                 lblV11.Visible = true;
                 lblV12.Visible = true;
@@ -2912,7 +2912,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         }
         else
         {
-            MessageBox.Show("Datei nicht gefunden\n" + sMacroOut);
+            MessageBox.Show("Datei nicht gefanden\n" + sMacroOut);
         }
         switch (cbMakro.Text)
         {
@@ -3039,7 +3039,7 @@ public class FrmAbbruchstellen : System.Windows.Forms.Form
         uint intIDUntermenue1;                                         // MenuID
         Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
         intIDUntermenue1 = oMenu.AddMainMenu(
-            "ePlanus",                                                     // Hauptmenüname
+            "ePlanus",                                                     // HauptMenuName
             "Hilfe",                                                       // neben Menüpunkt...
             "< ePlanus.de >",                                              // Menüpunktname
             "ePlanus",                                                     // Action

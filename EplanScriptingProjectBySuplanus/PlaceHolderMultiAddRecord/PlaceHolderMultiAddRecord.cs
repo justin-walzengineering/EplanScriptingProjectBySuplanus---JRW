@@ -39,7 +39,7 @@ namespace EplanScriptingProjectBySuplanus.PlaceHolderMultiAddRecord
             for (int i = 1; i <= iValue; i++)
             {
                new CommandLineInterpreter().Execute("MacrosGuiIGfWindNewRecord");
-               //SendKeys.SendWait("^+{F10}W"); //Taste Kontextmenü aufrufen und direkt Taste W
+               //SendKeys.SendWait("^+{F10}W"); //Taste Kontextmenü aufrufen and direkt Taste W
             }
          }
          return;
@@ -48,13 +48,13 @@ namespace EplanScriptingProjectBySuplanus.PlaceHolderMultiAddRecord
 
    public class InputBox
    {
-      /// <summary>
-      /// Displays a dialog with a prompt and textbox where the user can enter information
-      /// </summary>
-      /// <param name="title">Dialog title</param>
-      /// <param name="promptText">Dialog prompt</param>
-      /// <param name="value">Sets the initial value and returns the result</param>
-      /// <returns>Dialog result</returns>
+      // <summary>
+      // Displays a dialog with a prompt and textbox where the user can enter information
+      // </summary>
+      // <param name="title">Dialog title</param>
+      // <param name="promptText">Dialog prompt</param>
+      // <param name="value">Sets the initial value and returns the result</param>
+      // <returns>Dialog result</returns>
       public static DialogResult Show(string title, string promptText, ref string value)
       {
          Form form = new Form();
@@ -68,14 +68,14 @@ namespace EplanScriptingProjectBySuplanus.PlaceHolderMultiAddRecord
          textBox.Text = value;
 
          buttonOk.Text = "OK";
-         buttonCancel.Text = "Abbrechen";
+         buttonCancel.Text = "Abort";
          buttonOk.DialogResult = DialogResult.OK;
          buttonCancel.DialogResult = DialogResult.Cancel;
 
-         label.SetBounds(9, 18, 372, 13);
-         textBox.SetBounds(12, 36, 372, 20);
-         buttonOk.SetBounds(228, 72, 75, 23);
-         buttonCancel.SetBounds(309, 72, 75, 23);
+         label.SetBoands(9, 18, 372, 13);
+         textBox.SetBoands(12, 36, 372, 20);
+         buttonOk.SetBoands(228, 72, 75, 23);
+         buttonCancel.SetBoands(309, 72, 75, 23);
 
          label.AutoSize = true;
          textBox.Anchor = textBox.Anchor | AnchorStyles.Right;

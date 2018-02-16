@@ -1,7 +1,7 @@
 ﻿// PlaceHolderTranslateAction.cs
 //
 // Erweitert das Kontextmenü vom Platzhalterobjekt (Reiter Werte) um den Menüpunkt "Übersetzen"
-// und um den Menüpunkt "Übersetzungen entfernen"
+// and um den Menüpunkt "Übersetzungen entfernen"
 //
 // Copyright by Frank Schöneck, 2015
 // letzte Änderung:

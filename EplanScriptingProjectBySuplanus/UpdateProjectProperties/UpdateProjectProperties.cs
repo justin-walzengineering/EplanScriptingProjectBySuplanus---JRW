@@ -19,16 +19,16 @@ namespace RefreshProjectProperties
 {
     public class UpdateProjectProps
     {
-        /// <summary>
-        /// Description of RefreshProjectProperties.
-        /// </summary>
+        // <summary>
+        // Description of RefreshProjectProperties.
+        // </summary>
         public class UpdateProjectProperties
         {
             [DeclareEventHandler("onActionEnd.String.XPrjActionProjectOpen")]
             public void SetPrjBlockProperties()
             {
 
-                string musterPrjPath = @"C:\Dokumente und Einstellungen\All Users\Anwendungsdaten\EPLAN\Data\Projekte\Firma\EPLAN-DEMO.edb";
+                string musterPrjPath = @"C:\Dokumente and Einstellungen\All Users\Anwendungsdaten\EPLAN\Data\Projekte\Firma\EPLAN-DEMO.edb";
                 string activePrjPath = PathMap.SubstitutePath("$(P)");
 
                 System.Collections.Generic.List<KeyValuePair<string, string>> PropertyList = getPropertySettings();

@@ -1,15 +1,29 @@
 ﻿// ConnectionPointDesignationReverse.cs
 //
-// Erweitert das Kontextmenü von 'Anschlussbezeichnungen',
+// Erweitert das Kontextmenü von 'ConnectionTerms',
 // im Dialog 'Eigenschaften (Schaltzeichen): Allgemeines Betriebsmittel',
 // um den Menüpunkt 'Reihenfolge drehen'.
-// Es wird die Eingabe im Feld 'Anschlussbezeichnungen' automatisch gedreht.
+// Es wird die Eingabe im Feld 'ConnectionTerms' automatisch gedreht.
 //
 // Copyright by Frank Schöneck, 2015
 // letzte Änderung:
 // V1.0.0, 04.03.2015, Frank Schöneck, Projektbeginn
 //
 // für Eplan Electric P8, ab V2.3
+
+
+// ConnectionPointDesignationReverse.cs
+//
+// extends the context menu of 'port names',
+// in the dialog 'Properties (schematic): General Resources',
+// to the menu item 'turn order'.
+// The input in the field 'Connection designations' is automatically rotated.
+//
+// Copyright by Frank Schöneck, 2015
+// last change:
+// V1.0.1, 02/16/2018, Justin Walz, converted to english, added comments
+//
+// for Eplan Electric P8, from V2.3
 
 using System;
 using System.Windows.Forms;
@@ -23,7 +37,7 @@ public class ConnectionPointDesignationReverse
 	[DeclareMenu]
 	public void ProjectCopyContextMenu()
 	{
-		//Context-Menüeintrag
+		// Context - Menu item
 		string menuText = getMenuText();
 		Eplan.EplApi.Gui.ContextMenu oContextMenu = new Eplan.EplApi.Gui.ContextMenu();
 		Eplan.EplApi.Gui.ContextMenuLocation oContextMenuLocation = new Eplan.EplApi.Gui.ContextMenuLocation("XDTDataDialog", "4006");
@@ -39,27 +53,29 @@ public class ConnectionPointDesignationReverse
 			string sReturnText = string.Empty;
 			string EplanCRLF = "¶";
 
-			//Zwischenablage leeren
-			System.Windows.Forms.Clipboard.Clear();
+            // Empty clipboard
+            System.Windows.Forms.Clipboard.Clear();
 
-			//Zwischenablage füllen
-			CommandLineInterpreter oCLI = new CommandLineInterpreter();
-			oCLI.Execute("GfDlgMgrActionIGfWind /function:SelectAll"); // Alles markieren
-			oCLI.Execute("GfDlgMgrActionIGfWind /function:Copy"); // Kopieren
+            // Fill clipboard
 
-			if (System.Windows.Forms.Clipboard.ContainsText())
+            CommandLineInterpreter oCLI = new CommandLineInterpreter();
+			oCLI.Execute("GfDlgMgrActionIGfWind /function:SelectAll"); // Select all
+
+            oCLI.Execute("GfDlgMgrActionIGfWind /function:Copy"); // Copy
+
+            if (System.Windows.Forms.Clipboard.ContainsText())
 			{
 				sSourceText = System.Windows.Forms.Clipboard.GetText();
 				if (sSourceText != string.Empty)
 				{
-					string[] sAnschlussbezeichnungen = sSourceText.Split(new string[] { EplanCRLF }, StringSplitOptions.None);
+					string[] sConnectionTerms = sSourceText.Split(new string[] { EplanCRLF }, StringSplitOptions.None);
 
-					if (sAnschlussbezeichnungen.Length > 2) // Mehr als 2 Anschlussbezeichnungen
-					{
+					if (sConnectionTerms.Length > 2) // More than 2 connection names
+                    {
 						Decider eDecision = new Decider();
 						EnumDecisionReturn eAnswer = eDecision.Decide(EnumDecisionType.eYesNoDecision,
-							"Sollen die Anschlussbezeichnungen paarweise gedreht werden?",
-							"Reihenfolge drehen",
+                            "Should the connection designations be turned in pairs? ",
+                            "Turn the order",
 							EnumDecisionReturn.eYES,
 							EnumDecisionReturn.eYES,
 							"ConnectionPointDesignationReverse",
@@ -68,60 +84,66 @@ public class ConnectionPointDesignationReverse
 
 						if (eAnswer == EnumDecisionReturn.eYES)
 						{
-							// String neu aufbauen
-							for (int i = 0; i < sAnschlussbezeichnungen.Length; i = i + 2)
+                            // Rebuild string
+
+                            for (int i = 0; i < sConnectionTerms.Length; i = i + 2)
 							{
-								sReturnText += sAnschlussbezeichnungen[i + 1] + EplanCRLF + sAnschlussbezeichnungen[i] + EplanCRLF;
+								sReturnText += sConnectionTerms[i + 1] + EplanCRLF + sConnectionTerms[i] + EplanCRLF;
 							}
 						}
 						else
 						{
-							// String Array drehen
-							Array.Reverse(sAnschlussbezeichnungen);
+                            // Turn the string array
 
-							// String neu aufbauen
-							foreach (string sAnschluss in sAnschlussbezeichnungen)
+                            Array.Reverse(sConnectionTerms);
+
+
+                            // Rebuild string
+
+                            foreach (string sConnection in sConnectionTerms)
 							{
-								sReturnText += sAnschluss + EplanCRLF;
+								sReturnText += sConnection + EplanCRLF;
 							}
 						}
 					}
-					else // Nur 2 Anschlussbezeichnungen
-					{
-						// String Array drehen
-						Array.Reverse(sAnschlussbezeichnungen);
+                    else // Only 2 connection names
+                    {
+                        // Turn the string array
 
-						// String neu aufbauen
-						foreach (string sAnschluss in sAnschlussbezeichnungen)
+                        Array.Reverse(sConnectionTerms);
+
+                        // Rebuild string
+                        foreach (string sConnection in sConnectionTerms)
 						{
-							sReturnText += sAnschluss + EplanCRLF;
+							sReturnText += sConnection + EplanCRLF;
 						}
 					}
 
-					// letztes Zeichen wieder entfernen
-					sReturnText = sReturnText.Substring(0, sReturnText.Length - 1);
+                    // Remove last character again
 
-					//Zwischenablage einfügen
-					System.Windows.Forms.Clipboard.SetText(sReturnText);
-					oCLI.Execute("GfDlgMgrActionIGfWind /function:SelectAll"); // Alles markieren
-					oCLI.Execute("GfDlgMgrActionIGfWindDelete"); // Löschen
-					oCLI.Execute("GfDlgMgrActionIGfWind /function:Paste"); // Einfügen
-				}
+                    sReturnText = sReturnText.Substring(0, sReturnText.Length - 1);
+
+                    // Insert clipboard
+
+                    System.Windows.Forms.Clipboard.SetText(sReturnText);
+					oCLI.Execute("GfDlgMgrActionIGfWind /function:SelectAll"); // Select all
+                    oCLI.Execute("GfDlgMgrActionIGfWindDelete"); // Clear
+					oCLI.Execute("GfDlgMgrActionIGfWind /function:Paste"); // Insert
+                }
 			}
 		}
 		catch (System.Exception ex)
 		{
-			MessageBox.Show(ex.Message, "Reihenfolge drehen, Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(ex.Message, "Turn order, error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 		return;
 	}
 
-	// Returns the menueitem text in the gui langueage if available.
+	// Returns the menu item text in the GUI language if available.
 	private string getMenuText()
 	{
 		MultiLangString muLangMenuText = new MultiLangString();
 		muLangMenuText.SetAsString(
-			"de_DE@Reihenfolge drehen;" +
 			"en_US@rotate order;"
 			);
 

@@ -159,6 +159,9 @@
     <Compile Include="UpdateProjectProperties\UpdateProjectProperties.cs" />
     <Compile Include="XFREActionFrameOpen\XFREActionFrameOpenAction.cs" />
     <Compile Include="XPamTranslateDatabaseAction\XPamTranslateDatabaseAction.cs" />
+    <EmbeddedResource Include="DeciderDisplayEnable\DeciderDisplayEnable.resx">
+      <DependentUpon>DeciderDisplayEnable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertUniversalPart3D\InsertUniversalPart3D.resx">
       <DependentUpon>InsertUniversalPart3D.cs</DependentUpon>
     </EmbeddedResource>

@@ -48,19 +48,19 @@ public class FrmProjectHistory : System.Windows.Forms.Form
         }
     }
 
-    private System.Windows.Forms.Button btnAbbrechen;
+    private System.Windows.Forms.Button btnAbort;
     private System.Windows.Forms.ToolStripStatusLabel lblStatus2;
 
 
-    ///
-    /// Erforderliche Designervariable.
-    ///
+    //
+    // Erforderliche Designervariable.
+    //
     private System.ComponentModel.IContainer components = null;
 
-    ///
-    /// Verwendete Ressourcen bereinigen.
-    ///
-    /// True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.
+    //
+    // Verwendete Ressourcen bereinigen.
+    //
+    // True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -72,13 +72,13 @@ public class FrmProjectHistory : System.Windows.Forms.Form
 
     #region Vom Windows Form-Designer generierter Code
 
-    ///
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
-    ///
+    //
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+    //
     private void InitializeComponent()
     {
-        this.btnAbbrechen = new System.Windows.Forms.Button();
+        this.btnAbort = new System.Windows.Forms.Button();
         this.lblStatus2 = new System.Windows.Forms.ToolStripStatusLabel();
         this.statusStrip1 = new System.Windows.Forms.StatusStrip();
         this.prgBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -91,16 +91,16 @@ public class FrmProjectHistory : System.Windows.Forms.Form
         this.statusStrip1.SuspendLayout();
         this.SuspendLayout();
         // 
-        // btnAbbrechen
+        // btnAbort
         // 
-        this.btnAbbrechen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-        this.btnAbbrechen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-        this.btnAbbrechen.Location = new System.Drawing.Point(612, 418);
-        this.btnAbbrechen.Name = "btnAbbrechen";
-        this.btnAbbrechen.Size = new System.Drawing.Size(120, 24);
-        this.btnAbbrechen.TabIndex = 7;
-        this.btnAbbrechen.Text = "Abbrechen";
-        this.btnAbbrechen.UseVisualStyleBackColor = true;
+        this.btnAbort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+        this.btnAbort.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        this.btnAbort.Location = new System.Drawing.Point(612, 418);
+        this.btnAbort.Name = "btnAbort";
+        this.btnAbort.Size = new System.Drawing.Size(120, 24);
+        this.btnAbort.TabIndex = 7;
+        this.btnAbort.Text = "Abort";
+        this.btnAbort.UseVisualStyleBackColor = true;
         // 
         // lblStatus2
         // 
@@ -187,13 +187,13 @@ public class FrmProjectHistory : System.Windows.Forms.Form
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.BackColor = System.Drawing.SystemColors.Control;
-        this.CancelButton = this.btnAbbrechen;
+        this.CancelButton = this.btnAbort;
         this.ClientSize = new System.Drawing.Size(744, 472);
         this.Controls.Add(this.btnHistory);
         this.Controls.Add(this.btnProjectsHistory);
         this.Controls.Add(this.liviLastOpend);
         this.Controls.Add(this.statusStrip1);
-        this.Controls.Add(this.btnAbbrechen);
+        this.Controls.Add(this.btnAbort);
         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
         this.MaximizeBox = false;
         this.MinimizeBox = false;
@@ -293,8 +293,8 @@ public class FrmProjectHistory : System.Windows.Forms.Form
         Cursor.Current = Cursors.Default;
     }
 
-    // Button: Abbrechen
-    private void btnAbbrechen_Click(object sender, System.EventArgs e)
+    // Button: Abort
+    private void btnAbort_Click(object sender, System.EventArgs e)
     {
         Close();
     }

@@ -10,7 +10,7 @@ namespace EplanScriptingProjectBySuplanus.UpdateMacro
         {
             ActionCallingContext actionCallingContext = new ActionCallingContext();
             actionCallingContext.AddParameter("AutoAssignLastUsedRecord", "1");
-            // ReSharper disable once RedundantNameQualifier
+            // ReSharper disable once RedandantNameQualifier
             // Eplan needs name qualifiier
             Eplan.EplApi.ApplicationFramework.Action action = new ActionManager().FindBaseActionFromFunctionAction(false); // Full Namespace, couse of compiler warning in EPLAN
             action.Execute(actionCallingContext);

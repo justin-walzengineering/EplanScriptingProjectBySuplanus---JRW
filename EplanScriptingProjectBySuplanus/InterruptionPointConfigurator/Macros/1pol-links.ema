@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<EplanPxfRoot Name="1pol-links" Type="WindowMacro" Version="2010-03-03" PxfVersion="1.16" SchemaVersion="1.7.3725" Source="WJO" SourceProject="Z:\EPLAN\DATA\PLATTFORM\Projekte\SPANGLER\Makroprojekte\Master\Makroprojekt-Master.elk" Description="" ConfigurationFlags="0" NumMainObjects="1" NumProjectSteps="1" NumMDSteps="0" Custompagescaleused="true" Customgost="0">
+<EplanPxfRoot Name="1pol-Left" Type="WindowMacro" Version="2010-03-03" PxfVersion="1.16" SchemaVersion="1.7.3725" Source="WJO" SourceProject="Z:\EPLAN\DATA\PLATTFORM\Projekte\SPANGLER\Makroprojekte\Master\Makroprojekt-Master.elk" Description="" ConfigurationFlags="0" NumMainObjects="1" NumProjectSteps="1" NumMDSteps="0" Custompagescaleused="true" Customgost="0">
  <MacroVariant MacroFuncType="1" VariantId="0" ReferencePoint="36/284" Version="2010-03-03" PxfVersion="1.16" SchemaVersion="1.7.3725" Source="WJO" SourceProject="Z:\EPLAN\DATA\PLATTFORM\Projekte\SPANGLER\Makroprojekte\Master\Makroprojekt-Master.elk" Description="" ConfigurationFlags="0" DocumentType="1" SelectionArea="32/288/140/280">
   <O76 A1="76/596544" A3="0" A13="0" A14="0" A1422="1" A1423="1" A1424="0" A1425="??_??@0;" A1426="1002" A1427="0" A1428="-5" A1429="0" A1430="-1" A1433="0">
   <S54x1432 A961="2" A962="0" A963="0" A964="0" A965="0" A966="7" A967="0" A968="0" A969="0" A4000="100" A4001="0"/>
@@ -59,7 +59,7 @@
   </O14>
   <O4 A1="4/596529" A3="0" A13="0" A14="0" A47="1" A48="1267600403" A50="1" A59="1" A404="1" A405="64" A406="0" A431="1" A1101="" A1102="">
   <P11 P10185="WUP0U50795" P11020="WJO" P11021="1267543352" P11022="WJO" P11024="1267600403" P11048="1" P11050="0"/>
-  <P49 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P11012="A"/>
+  <P49 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P11012="A"/>
   <O37 A1="37/596530" A3="1" A13="0" A14="0" A404="1" A405="64" A406="0" A682="0" A683="70/596534;42/596531;70/596535" A684="0" A685="0/24" A687="8" A688="2" A689="1" A690="0" A693="0" A792="0" A793="0" A1261="0" A1262="44" A1263="0" A1631="0/-8" A1632="108/0">
   <S109x692 A3="0" A13="0" A14="0" R1906="70/596534"/>
   <S109x692 A3="0" A13="0" A14="0" R1906="42/596531"/>
@@ -67,7 +67,7 @@
   <S40x1201 A762="32/288">
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
-  <P11 P23001="$(MD_MACROS)\Verbindungen\Potenziale\1pol-links" P23002="2010-03-03" P23003="WJO"/>
+  <P11 P23001="$(MD_MACROS)\Verbindungen\Potenziale\1pol-Left" P23002="2010-03-03" P23003="WJO"/>
   <S89x5 A3="0" A4="1" R7="37/596530" A13="0" A14="0" A404="9" A405="64" A406="0" A411="308" A412="L" A413="L" A414="L" A415="L" A416="0" A1651="0/-8" A1652="108/0" A1653="0" A1654="0" A1655="0" A1656="0" A1657="0"/>
   </O37>
   <O42 A1="42/596531" A3="0" A13="0" A14="0" A404="5" A405="64" A406="0" A792="0" A793="3" A1261="0" A1262="64" A1263="0">
@@ -90,7 +90,7 @@
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
   <P144 P20013="###V1###"/>
-  <P150 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P20013="###V1###"/>
+  <P150 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P20013="###V1###"/>
   <S53x5 A3="0" A4="1" R7="70/596534" A13="0" A14="0" A404="1" A405="64" A406="0" A411="403" A412="L" A413="L" A414="L" A415="L" A416="0" A501="2/1.5" A503="64" A504="0" A506="0" A771="20010" A772="0" A773="0" A774="0" A951="15" A952="0" A953="0" A954="0">
   <S54x505 A961="L" A962="0" A963="0" A964="L" A965="0" A966="4" A967="0" A968="0" A969="0" A4000="L" A4001="L"/>
   </S53x5>
@@ -106,7 +106,7 @@
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
   <P144 P20013="###V1###"/>
-  <P150 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P20013="###V1###"/>
+  <P150 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P20013="###V1###"/>
   <S53x5 A3="0" A4="1" R7="70/596535" A13="0" A14="0" A404="1" A405="64" A406="0" A411="403" A412="L" A413="L" A414="L" A415="L" A416="0" A501="2/1.5" A503="64" A504="0" A506="0" A771="20010" A772="0" A773="0" A774="0" A951="15" A952="0" A953="0" A954="0">
   <S54x505 A961="L" A962="0" A963="0" A964="L" A965="0" A966="4" A967="0" A968="0" A969="0" A4000="L" A4001="L"/>
   </S53x5>
@@ -178,7 +178,7 @@
   </O14>
   <O4 A1="4/2596" A3="0" A13="0" A14="0" A47="1" A48="1267600403" A50="1" A59="1" A404="1" A405="64" A406="0" A431="1" A1101="B" A1102="">
   <P11 P10185="WUP0U50795" P11020="WJO" P11021="1267598958" P11022="WJO" P11024="1267600403" P11048="1" P11050="0"/>
-  <P49 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P11012="B"/>
+  <P49 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P11012="B"/>
   <O37 A1="37/596538" A3="1" A13="0" A14="0" A404="1" A405="64" A406="0" A682="0" A683="42/596539;70/596542;70/596543" A684="0" A685="0/24" A687="9" A688="2" A689="1" A690="1" A693="0" A792="0" A793="0" A1261="0" A1262="44" A1263="0" A1631="0/-8" A1632="108/0">
   <S109x692 A3="0" A13="0" A14="0" R1906="42/596539"/>
   <S109x692 A3="0" A13="0" A14="0" R1906="70/596542"/>
@@ -186,7 +186,7 @@
   <S40x1201 A762="32/288">
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
-  <P11 P23001="$(MD_MACROS)\Verbindungen\Potenziale\1pol-links" P23002="2010-03-03" P23003="WJO"/>
+  <P11 P23001="$(MD_MACROS)\Verbindungen\Potenziale\1pol-Left" P23002="2010-03-03" P23003="WJO"/>
   <S89x5 A3="0" A4="1" R7="37/596538" A13="0" A14="0" A404="9" A405="64" A406="0" A411="308" A412="L" A413="L" A414="L" A415="L" A416="0" A1651="0/-8" A1652="108/0" A1653="0" A1654="0" A1655="0" A1656="0" A1657="0"/>
   </O37>
   <O42 A1="42/596539" A3="0" A13="0" A14="0" A404="5" A405="64" A406="0" A792="0" A793="3" A1261="0" A1262="64" A1263="0">
@@ -209,7 +209,7 @@
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
   <P144 P20014="###V1###"/>
-  <P150 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P20014="###V1###"/>
+  <P150 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P20014="###V1###"/>
   <S53x5 A3="0" A4="1" R7="70/596542" A13="0" A14="0" A404="1" A405="64" A406="0" A411="403" A412="L" A413="L" A414="L" A415="L" A416="0" A501="2/1.5" A503="64" A504="0" A506="0" A771="20010" A772="0" A773="0" A774="0" A951="15" A952="0" A953="0" A954="0">
   <S54x505 A961="L" A962="0" A963="0" A964="L" A965="0" A966="4" A967="0" A968="0" A969="0" A4000="L" A4001="L"/>
   </S53x5>
@@ -225,7 +225,7 @@
   <S39x761 A751="1" A752="0" A753="0" A754="1"/>
   </S40x1201>
   <P144 P20014="###V1###"/>
-  <P150 P1100="Potenziale" P1200="1pol-links" P1300="Verbindungen" P1400="1pol" P20014="###V1###"/>
+  <P150 P1100="Potenziale" P1200="1pol-Left" P1300="Verbindungen" P1400="1pol" P20014="###V1###"/>
   <S53x5 A3="0" A4="1" R7="70/596543" A13="0" A14="0" A404="1" A405="64" A406="0" A411="403" A412="L" A413="L" A414="L" A415="L" A416="0" A501="2/1.5" A503="64" A504="0" A506="0" A771="20010" A772="0" A773="0" A774="0" A951="15" A952="0" A953="0" A954="0">
   <S54x505 A961="L" A962="0" A963="0" A964="L" A965="0" A966="4" A967="0" A968="0" A969="0" A4000="L" A4001="L"/>
   </S53x5>

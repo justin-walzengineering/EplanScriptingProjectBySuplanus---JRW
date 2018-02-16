@@ -16,7 +16,7 @@ public class MacrosInstallationSpaceContextMenu
 
         oMenu.AddMenuItem(
             oLocation,
-            "Fenstermakro erstellen",
+            "Windowmakro erstellen",
             "StoreWindowMacro",
             true,
             false

@@ -16,7 +16,7 @@ public class OpenProjectAndSetPartsDb
         }
         else
         {
-            MessageBox.Show("Datenbank nicht gefunden:\n" + DATABASE + "\n\n Es wurde keine Änderung an den Einstellungen vorgenommen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Datenbank nicht gefanden:\n" + DATABASE + "\n\n Es wurde keine Änderung an den Einstellungen vorgenommen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -28,7 +28,7 @@ public class OpenProjectAndSetPartsDb
         }
         else
         {
-            MessageBox.Show("Projekt nicht gefunden:\n" + PROJECT, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Projekt nicht gefanden:\n" + PROJECT, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         return;
 

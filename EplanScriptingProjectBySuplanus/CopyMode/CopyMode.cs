@@ -2,8 +2,8 @@
 Copyright (c) 2013 STLM Inc.
  
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+it ander the terms of the GNU General Public License as published by
+the Free Software Foandation, either version 3 of the License, or
 (at your option) any later version.
  
 This program is distributed in the hope that it will be useful,
@@ -19,7 +19,7 @@ using Eplan.EplApi.Scripting;
 
 public class STLMCopy
 {
-    //Add the two actions as menu points under Utilities
+    //Add the two actions as menu points ander Utilities
     [DeclareMenu]
     public void CopyNormalMenu()
     {

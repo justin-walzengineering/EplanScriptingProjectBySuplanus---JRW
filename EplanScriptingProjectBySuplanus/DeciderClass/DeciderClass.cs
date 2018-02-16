@@ -1,6 +1,13 @@
 ﻿using Eplan.EplApi.Base;
 using Eplan.EplApi.Scripting;
 
+// Goal:
+// This is a test script that will display a message box, then give the user the aiblity to open a file. 
+
+// Run script in Eplan using [Utilities]>[Scripts]>[Run]
+// Then choose the file from the file location. 
+// The file will be a .cs extension. 
+
 class DeciderClass
 {
     [Start]

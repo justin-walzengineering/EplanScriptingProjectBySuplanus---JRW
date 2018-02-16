@@ -5,7 +5,7 @@
 //
 // Copyright by Frank Schöneck, 2013
 // letzte Änderung: Frank Schöneck, 28.02.2013 V1.0.0, Projektbeginn
-//					Frank Schöneck, 01.03.2013 V1.1.0, Ebene, Linientyp und Musterlänge als Variable eingesetzt
+//					Frank Schöneck, 01.03.2013 V1.1.0, Ebene, Linientyp and Musterlänge als Variable eingesetzt
 //					Frank Schöneck, 16.04.2013 V1.2.0, Neuer Reiter "Einstellungen" mit der Möglichkeit zum gruppieren,
 //                                                     Name geändert von "InsertPDFComment" in "InsertComment"
 //
@@ -21,7 +21,7 @@ using System.Xml;
 public partial class frmInsertKommentar : System.Windows.Forms.Form
 {
 	private Button btnOK;
-	private Button btnAbbrechen;
+	private Button btnAbort;
 	private TabControl tabControl1;
 	private Label label1;
 	private Label label2;
@@ -37,16 +37,16 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 
 	#region Vom Windows Form-Designer generierter Code
 
-	/// <summary>
-	/// Erforderliche Designervariable.
-	/// </summary>
+	// <summary>
+	// Erforderliche Designervariable.
+	// </summary>
 	private System.ComponentModel.IContainer components = null;
 
-	/// <summary>
-	/// Verwendete Ressourcen bereinigen.
-	/// </summary>
-	/// <param name="disposing">True, wenn verwaltete Ressourcen
-	/// gelöscht werden sollen; andernfalls False.</param>
+	// <summary>
+	// Verwendete Ressourcen bereinigen.
+	// </summary>
+	// <param name="disposing">True, wenn verwaltete Ressourcen
+	// gelöscht werden sollen; andernfalls False.</param>
 	protected override void Dispose(bool disposing)
 	{
 		if (disposing && (components != null))
@@ -56,15 +56,15 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		base.Dispose(disposing);
 	}
 
-	/// <summary>
-	/// Erforderliche Methode für die Designerunterstützung.
-	/// Der Inhalt der Methode darf nicht mit dem Code-Editor
-	/// geändert werden.
-	/// </summary>
+	// <summary>
+	// Erforderliche Methode für die Designerunterstützung.
+	// Der Inhalt der Methode darf nicht mit dem Code-Editor
+	// geändert werden.
+	// </summary>
 	private void InitializeComponent()
 	{
 		this.btnOK = new System.Windows.Forms.Button();
-		this.btnAbbrechen = new System.Windows.Forms.Button();
+		this.btnAbort = new System.Windows.Forms.Button();
 		this.tabControl1 = new System.Windows.Forms.TabControl();
 		this.tabKommentar = new System.Windows.Forms.TabPage();
 		this.cBStatus = new System.Windows.Forms.ComboBox();
@@ -92,16 +92,16 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.btnOK.UseVisualStyleBackColor = true;
 		this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 		// 
-		// btnAbbrechen
+		// btnAbort
 		// 
-		this.btnAbbrechen.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-		this.btnAbbrechen.Location = new System.Drawing.Point(328, 382);
-		this.btnAbbrechen.Name = "btnAbbrechen";
-		this.btnAbbrechen.Size = new System.Drawing.Size(110, 25);
-		this.btnAbbrechen.TabIndex = 1;
-		this.btnAbbrechen.Text = "Abbrechen";
-		this.btnAbbrechen.UseVisualStyleBackColor = true;
-		this.btnAbbrechen.Click += new System.EventHandler(this.btnAbbrechen_Click);
+		this.btnAbort.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+		this.btnAbort.Location = new System.Drawing.Point(328, 382);
+		this.btnAbort.Name = "btnAbort";
+		this.btnAbort.Size = new System.Drawing.Size(110, 25);
+		this.btnAbort.TabIndex = 1;
+		this.btnAbort.Text = "Abort";
+		this.btnAbort.UseVisualStyleBackColor = true;
+		this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
 		// 
 		// tabControl1
 		// 
@@ -228,7 +228,7 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.chkKommentartextGruppieren.Name = "chkKommentartextGruppieren";
 		this.chkKommentartextGruppieren.Size = new System.Drawing.Size(246, 17);
 		this.chkKommentartextGruppieren.TabIndex = 0;
-		this.chkKommentartextGruppieren.Text = "Symbol und Kommentartext gruppiert platzieren";
+		this.chkKommentartextGruppieren.Text = "Symbol and Kommentartext gruppiert platzieren";
 		this.chkKommentartextGruppieren.UseVisualStyleBackColor = true;
 		// 
 		// frmInsertKommentar
@@ -236,10 +236,10 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		this.AcceptButton = this.btnOK;
 		this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 		this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-		this.CancelButton = this.btnAbbrechen;
+		this.CancelButton = this.btnAbort;
 		this.ClientSize = new System.Drawing.Size(450, 419);
 		this.Controls.Add(this.tabControl1);
-		this.Controls.Add(this.btnAbbrechen);
+		this.Controls.Add(this.btnAbort);
 		this.Controls.Add(this.btnOK);
 		this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 		this.MaximizeBox = false;
@@ -302,8 +302,8 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		txtKommentartext.Select();
 	}
 
-	//Button Abbrechen Click
-	private void btnAbbrechen_Click(object sender, System.EventArgs e)
+	//Button Abort Click
+	private void btnAbort_Click(object sender, System.EventArgs e)
 	{
 		Close();
 	}
@@ -341,7 +341,7 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		//Status, (A2527 = 0(kein Status) / 1(Akzeptiert) / 2(Abgelehnt) / 3(Abgebrochen) / 4(Beendet))
 		string sStatus = cBStatus.SelectedIndex.ToString();
 
-		//Pfad und Dateiname der Temp.datei
+		//Pfad and Dateiname der Temp.datei
 		string sTempFile;
 #if DEBUG
 		sTempFile = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\tmpInsertComment.ema";
@@ -410,30 +410,30 @@ public partial class frmInsertKommentar : System.Windows.Forms.Form
 		return;
 	}
 
-	/// <summary>
-	/// Methods to convert Unix time stamp to DateTime
-	/// </summary>
-	/// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
-	/// <returns>Return DateTime</returns>
-	///
-	/// Beispiel:
-	/// convert given Unix time stamp to DateTime and update dateTimePicker value
-	///	dateTimePicker1.Value = UnixTimestampToDateTime(181913235);
+	// <summary>
+	// Methods to convert Unix time stamp to DateTime
+	// </summary>
+	// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
+	// <returns>Return DateTime</returns>
+	//
+	// Beispiel:
+	// convert given Unix time stamp to DateTime and update dateTimePicker value
+	//	dateTimePicker1.Value = UnixTimestampToDateTime(181913235);
 	public DateTime UnixTimestampToDateTime(long _UnixTimeStamp)
 	{
 		return (new DateTime(1970, 1, 1, 1, 0, 0)).AddSeconds(_UnixTimeStamp);
 
 	}
 
-	/// <summary>
-	/// Methods to convert DateTime to Unix time stamp
-	/// </summary>
-	/// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
-	/// <returns>Return Unix time stamp as long type</returns>
-	/// 
-	/// Beispiel:
-	/// Convert current DateTime in Unix time stamp
-	///	Console.WriteLine("Current unix time stamp is : " + DateTimeToUnixTimestamp(DateTime.Now).ToString());
+	// <summary>
+	// Methods to convert DateTime to Unix time stamp
+	// </summary>
+	// <param name="_UnixTimeStamp">Unix time stamp to convert</param>
+	// <returns>Return Unix time stamp as long type</returns>
+	// 
+	// Beispiel:
+	// Convert current DateTime in Unix time stamp
+	//	Console.WriteLine("Current unix time stamp is : " + DateTimeToUnixTimestamp(DateTime.Now).ToString());
 	public long DateTimeToUnixTimestamp(DateTime _DateTime)
 	{
 		TimeSpan _UnixTimeSpan = (_DateTime - new DateTime(1970, 1, 1, 1, 0, 0));

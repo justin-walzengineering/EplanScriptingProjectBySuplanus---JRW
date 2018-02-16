@@ -1,6 +1,13 @@
 ﻿using System;
 using Eplan.EplApi.Scripting;
 
+// Goal:
+// I did not test this script. 
+
+// Run script in Eplan using [Utilities]>[Scripts]>[Run]
+// Then choose the file from the file location. 
+// The file will be a .cs extension.
+
 class Class
 {
     [Start]

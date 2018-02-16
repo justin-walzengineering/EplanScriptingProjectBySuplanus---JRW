@@ -12,16 +12,16 @@ public partial class frmExecuteEplanAction : System.Windows.Forms.Form
 
     #region Vom Windows Form-Designer generierter Code
 
-    /// <summary>
-    /// Erforderliche Designervariable.
-    /// </summary>
+    // <summary>
+    // Erforderliche Designervariable.
+    // </summary>
     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Verwendete Ressourcen bereinigen.
-    /// </summary>
-    /// <param name="disposing">True, wenn verwaltete Ressourcen
-    /// gelöscht werden sollen; andernfalls False.</param>
+    // <summary>
+    // Verwendete Ressourcen bereinigen.
+    // </summary>
+    // <param name="disposing">True, wenn verwaltete Ressourcen
+    // gelöscht werden sollen; andernfalls False.</param>
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -31,11 +31,11 @@ public partial class frmExecuteEplanAction : System.Windows.Forms.Form
         base.Dispose(disposing);
     }
 
-    /// <summary>
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor
-    /// geändert werden.
-    /// </summary>
+    // <summary>
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor
+    // geändert werden.
+    // </summary>
     private void InitializeComponent()
     {
         this.btnCancel = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ public partial class frmExecuteEplanAction : System.Windows.Forms.Form
         this.btnCancel.Name = "btnCancel";
         this.btnCancel.Size = new System.Drawing.Size(120, 23);
         this.btnCancel.TabIndex = 1;
-        this.btnCancel.Text = "Abbrechen";
+        this.btnCancel.Text = "Abort";
         this.btnCancel.UseVisualStyleBackColor = true;
         this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
         // 

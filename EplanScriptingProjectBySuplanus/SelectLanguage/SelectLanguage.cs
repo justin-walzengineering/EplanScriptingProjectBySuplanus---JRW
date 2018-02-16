@@ -61,7 +61,7 @@ public class SelectLanguage : System.Windows.Forms.Form
         aryLanguages.Add("ar_TN;Arabisch (Tunesien)");
         aryLanguages.Add("ar_YE;Arabisch (Jemen)");
         aryLanguages.Add("bg_BG;Bulgarisch");
-        aryLanguages.Add("bs_BA;Bosnisch (Lateinisch, Bosnien und Herzegowina)");
+        aryLanguages.Add("bs_BA;Bosnisch (Lateinisch, Bosnien and Herzegowina)");
         aryLanguages.Add("ca_ES;Katalanisch");
         aryLanguages.Add("cs_CZ;Tschechisch");
         aryLanguages.Add("da_DK;Dänisch");
@@ -103,7 +103,7 @@ public class SelectLanguage : System.Windows.Forms.Form
         aryLanguages.Add("fr_FR;Französisch (Frankreich)");
         aryLanguages.Add("he_IL;Hebräisch");
         aryLanguages.Add("hi_IN;Hindi");
-        aryLanguages.Add("hr_BA;Kroatisch (Bosnien und Herzegowina)");
+        aryLanguages.Add("hr_BA;Kroatisch (Bosnien and Herzegowina)");
         aryLanguages.Add("hr_HR;Kroatisch");
         aryLanguages.Add("hu_HU;Ungarisch");
         aryLanguages.Add("id_ID;Indonesisch");
@@ -135,7 +135,7 @@ public class SelectLanguage : System.Windows.Forms.Form
         aryLanguages.Add("sl_SI;Slowenisch");
         aryLanguages.Add("so_SO;Somalisch");
         aryLanguages.Add("sq_AL;Albanisch");
-        aryLanguages.Add("sr_BA;Serbisch (Lateinisch, Bosnien und Herzegowina)");
+        aryLanguages.Add("sr_BA;Serbisch (Lateinisch, Bosnien and Herzegowina)");
         aryLanguages.Add("sr_CY;Serbisch (Kyrillisch)");
         aryLanguages.Add("sr_LT;Serbisch (Lateinisch)");
         aryLanguages.Add("ss_SZ;Swasiländisch");
@@ -159,16 +159,16 @@ public class SelectLanguage : System.Windows.Forms.Form
     }
 
 
-    /// <summary>
-    /// Erforderliche Designervariable.
-    /// </summary>
+    // <summary>
+    // Erforderliche Designervariable.
+    // </summary>
     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Verwendete Ressourcen bereinigen.
-    /// </summary>
-    /// <param name="disposing">True, wenn verwaltete Ressourcen
-    /// gelöscht werden sollen; andernfalls False.</param>
+    // <summary>
+    // Verwendete Ressourcen bereinigen.
+    // </summary>
+    // <param name="disposing">True, wenn verwaltete Ressourcen
+    // gelöscht werden sollen; andernfalls False.</param>
     protected override void Dispose(bool disposing)
     {
         if (disposing && (components != null))
@@ -178,11 +178,11 @@ public class SelectLanguage : System.Windows.Forms.Form
         base.Dispose(disposing);
     }
 
-    /// <summary>
-    /// Erforderliche Methode für die Designerunterstützung.
-    /// Der Inhalt der Methode darf nicht mit dem Code-Editor
-    /// geändert werden.
-    /// </summary>
+    // <summary>
+    // Erforderliche Methode für die Designerunterstützung.
+    // Der Inhalt der Methode darf nicht mit dem Code-Editor
+    // geändert werden.
+    // </summary>
     private void InitializeComponent()
     {
         this.label1 = new System.Windows.Forms.Label();
@@ -237,7 +237,7 @@ public class SelectLanguage : System.Windows.Forms.Form
         this.btnCancel.Name = "btnCancel";
         this.btnCancel.Size = new System.Drawing.Size(120, 23);
         this.btnCancel.TabIndex = 3;
-        this.btnCancel.Text = "Abbrechen";
+        this.btnCancel.Text = "Abort";
         this.btnCancel.UseVisualStyleBackColor = true;
         this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
         // 

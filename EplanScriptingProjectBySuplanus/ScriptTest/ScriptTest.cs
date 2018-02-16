@@ -8,19 +8,19 @@ namespace ibKastl.Scripts.Test
 {
     class ScriptTest
     {
-        /// <summary>
-        /// Start Visual Studio with the given Script
-        /// </summary>
-        /// <param name="scriptPath">Full Path to .cs or .vb File</param>
-        /// <param name="parameter">Parameters for the Action</param>
-        /// <param name="execute">Excute after EPLAN started</param>
+        // <summary>
+        // Start Visual Studio with the given Script
+        // </summary>
+        // <param name="scriptPath">Full Path to .cs or .vb File</param>
+        // <param name="parameter">Parameters for the Action</param>
+        // <param name="execute">Excute after EPLAN started</param>
         [DeclareAction("ScriptTest")]               
         public void Action(string scriptPath, string parameter, string execute)
         {
             // Check file
             if (!File.Exists(scriptPath))
             {
-                MessageBox.Show("Scriptdatei wurde nicht gefunden:"
+                MessageBox.Show("Scriptdatei wurde nicht gefanden:"
                                 + Environment.NewLine + scriptPath + Environment.NewLine +
                                 "Das Script wurde nicht geladen.",
                                 "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);

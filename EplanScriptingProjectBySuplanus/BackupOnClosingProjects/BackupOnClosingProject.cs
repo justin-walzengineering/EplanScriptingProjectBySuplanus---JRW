@@ -3,6 +3,13 @@ using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Base;
 using Eplan.EplApi.Scripting;
 
+// Goal:
+// This will create event handler in which every time the project is closed the user will be asked if a backup of project should be created
+
+// Load script in Eplan using [Utilities]>[Scripts]>[Load]
+// Then choose the file from the file location. 
+// The file will be a .cs extension. 
+
 public class BackupOnClosingProject
 {
 	[DeclareEventHandler("onActionStart.String.XPrjActionProjectClose")]
@@ -13,10 +20,10 @@ public class BackupOnClosingProject
 		string strDestination = strFullProjectname;
 		
 		DialogResult Result = MessageBox.Show(
-			"Soll eine Sicherung für das Projekt\n'"
+            "Should a backup for the project\n'"
 			+ strProjectname +
-			"'\nerzeugt werden?",
-			"Datensicherung",
+            "'\nbe generated? ",
+            "Data backup",
 			MessageBoxButtons.YesNo,
 			MessageBoxIcon.Question
 			);

@@ -39,7 +39,7 @@ Public Class CompressPartsDatabase
 		'Einstellung 'Artikeldatenbank' auslesen
 		DatabaseName = oSettings.getStringSetting("USER.PartsManagementGui.Database", 0)
 
-		'Variablen auslesen und ersetzen
+		'Variablen auslesen and ersetzen
 		DatabaseName = PathMap.SubstitutePath(DatabaseName)
 
 		'Namen der Backup-Datei festlegen
