@@ -233,7 +233,7 @@ public class SetLanguageGui : System.Windows.Forms.Form
         this.Name = "SetLanguageGui";
         this.ShowInTaskbar = false;
         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = "SetLanguageGui";
+        this.Text = "Set Language";
         this.Load += new System.EventHandler(this.SetLanguageGui_Load);
         this.ResumeLayout(false);
 
@@ -331,7 +331,7 @@ public class SetLanguageGui : System.Windows.Forms.Form
         }
         else
         {
-            MessageBox.Show("Keine Sprache gewählt");
+            MessageBox.Show("No language selected");
         }
 
     }

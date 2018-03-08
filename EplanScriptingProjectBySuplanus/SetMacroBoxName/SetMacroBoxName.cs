@@ -6,6 +6,16 @@
 // V3.1:	Straight-Potter	2012
 // V3.2:	FrankS			17.05.2013
 // Makrokastenname aus Seitenstruktur setzen
+
+// V1: nairolf 05.12.2010
+// V2: Johann Weiher 07.12.2010
+// V2.1: Johann Weiher 07.12.2010
+// V2.2: nairolf 10.05.2011
+// V3.0: nairolf 16.05.2011
+// V3.1: Straight Potter 2012
+// V3.2: FrankS 17.05.2013
+// set the macro box name from the page structure
+
 using System.Windows.Forms;
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Scripting;
@@ -16,12 +26,13 @@ public class SetMacroBoxName
 	[DeclareAction("SetMacroBoxName")]
 	public bool MyMacroBoxName(string EXTENSION, string GETNAMEFROMLEVEL)
 	{
-		//parameter description:
-		//----------------------
-		//EXTENSION			...	macroname extionsion (e.g. '.ems')
-		//GETNAMEFROMLEVEL	...	get macro name form level code (e.g. 1 = Funktionale Zuordnung, 2 = Anlage, 3 = Aufstellungsort, 4 = Einbauort, 5 = Dokumentenart, 6 = Benutzerdefiniert, P = Seitenname)
-		try
-		{
+        //parameter description:
+        //----------------------
+        //EXTENSION			...	macroname extionsion (e.g. '.ems')
+
+        // GETNAMEFROMLEVEL ... get macro name form level code (eg 1 = Functional assignment, 2 = Attachment, 3 = Location, 4 = Location, 5 = Document type, 6 = User defined, P = Page name)
+        try
+        {
 			string sPages = string.Empty;
 			ActionCallingContext oCTX1 = new ActionCallingContext();
 			CommandLineInterpreter oCLI1 = new CommandLineInterpreter();
@@ -32,16 +43,16 @@ public class SetMacroBoxName
 
 			if (sarrPages.Length > 1)
 			{
-				MessageBox.Show("Mehr als eine Seite markiert.\nAktion nicht möglich...", "Hinweis...");
+				MessageBox.Show("More than one page marked. \nAction not possible......", "Note...");
 				return false;
 			}
 
 			#region get macroname
 			string sPageName = sarrPages[0];
-			//ensure unique level codes:
-			//Funktionale Zuordnung -> $
-			//Aufstellungsort -> %
-			sPageName = sPageName.Replace("==", "$").Replace("++", "%");
+            // ensure unique level codes:
+            // Functional assignment -> $
+            // Site ->%
+            sPageName = sPageName.Replace("==", "$").Replace("++", "%");
 			//get location from pagename
 			string sMacroBoxName = string.Empty;
 
@@ -112,7 +123,7 @@ public class SetMacroBoxName
 							sMacroBoxName = sMacroBoxName + "\\" + ExtractLevelName(sPageName, "#");
 						}
 						break;
-					case "P": //Seitenname
+					case "P": //Page name
 						if (sMacroBoxName.EndsWith(@"\"))
 						{
 							sMacroBoxName = sMacroBoxName + ExtractLevelName(sPageName, "/");
@@ -140,7 +151,7 @@ public class SetMacroBoxName
 
 			if (sMacroBoxName == string.Empty)
 			{
-				MessageBox.Show("Es konnte kein Makroname ermittelt werden...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("No macro name could be determined...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 
@@ -156,7 +167,7 @@ public class SetMacroBoxName
 		}
 		catch (System.Exception ex)
 		{
-			MessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 	}
@@ -167,9 +178,10 @@ public class SetMacroBoxName
 
 		if (sPage.Contains(sLevel))
 		{
-			//check existing level codes (remove all text of following level code)
-			#region Funktionale Zuordnung
-			if (sLevel == "$")
+            //check existing level codes (remove all text of following level code)
+            #region Functional assignment
+
+            if (sLevel == "$")
 			{
 				if (sPage.Contains("="))
 				{
@@ -215,10 +227,10 @@ public class SetMacroBoxName
 				//no further structure identifier existing
 				sLevelName = sPage.Substring(sPage.IndexOf(sLevel), sPage.IndexOf("/") - sPage.IndexOf(sLevel));
 			}
-			#endregion
+            #endregion
 
-			#region Anlage
-			if (sLevel == "=")
+            #region Investment
+            if (sLevel == "=")
 			{
 				if (sPage.Contains("%"))
 				{
@@ -260,10 +272,10 @@ public class SetMacroBoxName
 				//no further structure identifier existing
 				sLevelName = sPage.Substring(sPage.IndexOf(sLevel), sPage.IndexOf("/") - sPage.IndexOf(sLevel));
 			}
-			#endregion
+            #endregion
 
-			#region Aufstellungsort
-			if (sLevel == "%")
+            #region Site
+            if (sLevel == "%")
 			{
 				if (sPage.Contains("+"))
 				{
@@ -300,10 +312,10 @@ public class SetMacroBoxName
 				//no further structure identifier existing
 				sLevelName = sPage.Substring(sPage.IndexOf(sLevel), sPage.IndexOf("/") - sPage.IndexOf(sLevel));
 			}
-			#endregion
+            #endregion
 
-			#region Einbauort
-			if (sLevel == "+")
+            #region Installation
+            if (sLevel == "+")
 			{
 				if (sPage.Contains("&"))
 				{
@@ -336,10 +348,11 @@ public class SetMacroBoxName
 				//no further structure identifier existing
 				sLevelName = sPage.Substring(sPage.IndexOf(sLevel), sPage.IndexOf("/") - sPage.IndexOf(sLevel));
 			}
-			#endregion
+            #endregion
 
-			#region Dokumentenart
-			if (sLevel == "&")
+            #region Document Type
+
+            if (sLevel == "&")
 			{
 				//check if document type is at beginning
 				if (sPage.StartsWith("&"))
@@ -377,7 +390,7 @@ public class SetMacroBoxName
 				}
 				else
 				{
-					//document typ NOT at beginning
+					//document type NOT at beginning
 					if (sPage.Contains("#"))
 					{
 						if (sPage.StartsWith("#"))
@@ -396,10 +409,10 @@ public class SetMacroBoxName
 				}
 
 			}
-			#endregion
+            #endregion
 
-			#region Benutzerdefiniert
-			if (sLevel == "#")
+            #region Custom
+            if (sLevel == "#")
 			{
 				//check if user defined is at beginning
 				if (sPage.StartsWith("#"))
@@ -445,10 +458,11 @@ public class SetMacroBoxName
 					}
 				}
 			}
-			#endregion
+            #endregion
 
-			#region Seitenname
-			if (sLevel == "/")
+            #region Pagename
+
+            if (sLevel == "/")
 			{
 				//nur den Seitenname
 				sLevelName = sPage.Substring(sPage.IndexOf("/"), sPage.Length - sPage.IndexOf("/"));

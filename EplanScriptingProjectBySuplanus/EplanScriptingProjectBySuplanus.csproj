@@ -95,6 +95,9 @@
     <Compile Include="ExtendedSettings\ExtendedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ExtendedSettings_v2\ExtendedSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FindandReplace\FindandReplace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +130,7 @@
     </Compile>
     <Compile Include="PlaceHolderMultiAddRecord\PlaceHolderMultiAddRecord.cs" />
     <Compile Include="PlaceHolderTranslateAction\PlaceHolderTranslateAction.cs" />
+    <Compile Include="ScriptSettings\ScriptSettings.cs" />
     <Compile Include="ScriptTest\ScriptTest.cs" />
     <Compile Include="ShowNavigators\ShowNavigators.cs" />
     <Compile Include="ToggleDeviceTag\ToggleDeviceTag.cs" />
@@ -248,6 +252,7 @@
     <Content Include="CustomPropertyEditor\Example\10013.0.false.txt" />
     <Content Include="CustomPropertyEditor\Example\10014.0.true.txt" />
     <Content Include="ElkExportToDwg\ElkExportToDwg.vb" />
+    <Content Include="ExtendedSettings_v2\Toolbar_ExtendedSettings.xml" />
     <Content Include="GetProjectProperty\GetProjectProperty_Scheme.xml" />
     <Content Include="GetProjectProperty\GetProjectProperty_Template.xml" />
     <Content Include="LocationPrint\Icon\LocationPrint.bmp" />
@@ -293,7 +298,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ExtendedSettings_v2\Images\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
