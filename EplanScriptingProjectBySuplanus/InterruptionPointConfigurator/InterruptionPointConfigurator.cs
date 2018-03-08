@@ -1999,7 +1999,7 @@ public class FRMTerminationPoints : System.Windows.Forms.Form
     #endregion
 
 
-    # endregion // Code für das Formular
+    # endregion // Code für das Form
 
     public string sMacropath = PathMap.SubstitutePath("$(MD_MACROS)") + @"\Links\Potential\";
     public string sTemp = @"C:\Program\EPLAN\TEMP\temp.ema";

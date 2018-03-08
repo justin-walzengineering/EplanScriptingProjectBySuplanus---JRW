@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Scripting;
 
-public partial class frmExecuteEplanAction : System.Windows.Forms.Form
+public partial class frmExecuteEplanAction : Form
 {
     private Button btnCancel;
     private Button btnOk;

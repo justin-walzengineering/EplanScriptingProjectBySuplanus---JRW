@@ -11,28 +11,28 @@ public class MultilanguageToolExamples_Settings
 
         oCLI.Execute("XTrSettingsDlgAction"); // Settings DEFAULT
 
-        // Bei Eingabe übersetzen
+        // Translate on input
         #region SetTranslationOnInput
         acc.AddParameter("ACTIVE", "YES"); // parameters: YES, NO
         oCLI.Execute("SetTranslationOnInput", acc);
         oCLI.Execute("XTrSettingsDlgAction");
         #endregion
 
-        // Groß- / Kleinschreibung beachten
+        // Case sensitive
         #region SetMatchCase 
         acc.AddParameter("ACTIVE", "YES"); // parameters: YES, NO
         oCLI.Execute("SetMatchCase", acc);
         oCLI.Execute("XTrSettingsDlgAction");
         #endregion
 
-        // Bereits übersetzte Texte verändern
+        // Already translated texts change
         #region SetChangeTranslatedText
         acc.AddParameter("ACTIVE", "YES"); // parameters: YES, NO
         oCLI.Execute("SetChangeTranslatedText", acc);
         oCLI.Execute("XTrSettingsDlgAction");
         #endregion
 
-        // Manuelle Auswahl bei Mehrfachbedeutungen
+        // Manual selection for multiple meanings
         #region SetManualSelectionForMultipleMeanings
         acc.AddParameter("ACTIVE", "YES"); // parameters: YES, NO
         oCLI.Execute("SetManualSelectionForMultipleMeanings", acc);
@@ -46,14 +46,14 @@ public class MultilanguageToolExamples_Settings
         oCLI.Execute("XTrSettingsDlgAction");
         #endregion
 
-        // Groß- / Kleinschreibung
+        // Case sensitive
         #region SetUpperLowerCase
         acc.AddParameter("TYPE", "ALLUPPERCASE"); // parameters: ACCORDINGTODICTIONARY, ALLUPPERCASE, ALLLOWERCASE, CAPITALIZEFIRSTLETTER
         oCLI.Execute("SetUpperLowerCase", acc);
         oCLI.Execute("XTrSettingsDlgAction");
         #endregion
 
-        // Fehlende Übersetzung: Anzeigen
+        // Missing translation: Ads
         #region SetShowMissingTranslation
         acc.AddParameter("ACTIVE", "YES"); // parameters: YES, NO
         oCLI.Execute("SetShowMissingTranslation", acc);

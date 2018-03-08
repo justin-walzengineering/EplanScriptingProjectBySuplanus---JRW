@@ -5,6 +5,17 @@
 //
 //  Christian Klasen  
 //
+
+
+//
+// This script adds a menu item "Print page" in the context menu of the
+// graphical editor. The page is about the user as
+// Default defined printer output.
+//
+// Justin Walz
+//
+
+
 using System.Windows.Forms;
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Scripting;
@@ -14,7 +25,7 @@ public class QuickprintContextMenu
     [DeclareRegister]
     public void Register()
     {
-        MessageBox.Show("Script geladen.");
+        MessageBox.Show("Script loaded.");
 
         return;
     }
@@ -22,7 +33,7 @@ public class QuickprintContextMenu
     [DeclareUnregister]
     public void UnRegister()
     {
-        MessageBox.Show("Script entladen.");
+        MessageBox.Show("Unload the script.");
 
         return;
     }
@@ -46,7 +57,7 @@ public class QuickprintContextMenu
 
         oCLI.Execute("print", acc);
 
-        //MessageBox.Show("Seite gedruckt");
+        //MessageBox.Show("Page printed");
         return;
     }
 
@@ -64,7 +75,7 @@ public class QuickprintContextMenu
 
         oMenu.AddMenuItem(
             oLocation,
-            "Seite drucken",
+            "Print Page",
             "MenuAction",
             true,
             false

@@ -12,26 +12,26 @@ public class RegisterScriptMenu
 	public void MenuFunction()
 	{
 		Eplan.EplApi.Gui.Menu aMenu = new Eplan.EplApi.Gui.Menu();
-		aMenu.AddMenuItem(	"alle Scripte laden",
+		aMenu.AddMenuItem(	"Load all scripts",
 							"LoadScripts",
-							"lädt alle Standard-Scripte",
-							System.UInt32.Parse("35226"), 	// Menü-ID von Dienstprogramme/Scripte/To Run
-							System.Int32.Parse("0"), 	// ID of the following menu. (0 for default)
+							"Loads all standard scripts",
+							System.UInt32.Parse("35226"),   // Menu ID of Utilities / Scripts / To Run
+                            System.Int32.Parse("0"), 	// ID of the following menu. (0 for default)
 							false,
 							true);
 		Eplan.EplApi.Gui.Menu bMenu = new Eplan.EplApi.Gui.Menu();
-		bMenu.AddMenuItem(	"alle Scripte entladen",
+		bMenu.AddMenuItem(	"Unload all scripts",
 							"UnloadScripts",
-							"entlädt alle Standard-Scripte",
-							System.UInt32.Parse("35228"), 	// Menü-ID von Dienstprogramme/Scripte/Entladen
-							System.Int32.Parse("1"), 	// ID of the following menu. (0 for default)
+							"Unoads all standard scripts",
+							System.UInt32.Parse("35228"), 	//Menu ID of Utilities / Scripts / Unload
+                            System.Int32.Parse("1"), 	// ID of the following menu. (0 for default)
 							true,
 							false);														
 	}
 
 
-	[DeclareAction("LoadScripts")]	// Action für "alle Scripte laden" 	//Script lädt alle Scripte des eingestellten Ordners
-	public void LoadScriptsProject()
+	[DeclareAction("LoadScripts")]  // Action for "Load all scripts" 	//Script loads all scripts of the selected folder
+    public void LoadScriptsProject()
 	{
 	string path = PathMap.SubstitutePath("$(MD_SCRIPTS)");
 	string message = "";
@@ -67,10 +67,10 @@ public class RegisterScriptMenu
 			message += fileInfo.Name;
 			i++;
 		}
-		MessageBox.Show("folgende Scripte wurden erfolgreich geladen:" + "\n" + message, "Geladene Scripte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		MessageBox.Show("The following scripts were loaded successfully:" + "\n" + message, "Loaded scripts", MessageBoxButtons.OK, MessageBoxIcon.Information);
 	}
 	
-	[DeclareAction("UnloadScripts")]	// Action für "alle Scripte entladen"
+	[DeclareAction("UnloadScripts")]    // Action for "Unload all scripts"
 	public void UnloadScriptsProject()
 	{	
 	string path1 = PathMap.SubstitutePath("$(MD_SCRIPTS)");	
@@ -92,7 +92,7 @@ public class RegisterScriptMenu
 			aca.AddParameter("ScriptFile", fileInfo.FullName);
 			oCLA.Execute("UnRegisterScript", aca);	
 		}
-		MessageBox.Show("alle Scripte wurden entladen", "Entladene Scripte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		MessageBox.Show("All scripts were unloaded", "Unloaded scripts", MessageBoxButtons.OK, MessageBoxIcon.Information);
 	}	
 }
 

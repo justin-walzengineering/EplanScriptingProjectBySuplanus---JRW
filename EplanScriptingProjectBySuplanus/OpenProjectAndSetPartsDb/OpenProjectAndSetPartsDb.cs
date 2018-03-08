@@ -12,11 +12,11 @@ public class OpenProjectAndSetPartsDb
         {
             Eplan.EplApi.Base.Settings oSettings = new Eplan.EplApi.Base.Settings();
             oSettings.SetStringSetting("USER.PartsManagementGui.Database", DATABASE, 0);
-            MessageBox.Show("Eingestellte Datenbank:\n" + DATABASE, "OpenProjectAndSetPartsDb", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Set database:\n" + DATABASE, "OpenProjectAndSetPartsDb", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else
         {
-            MessageBox.Show("Datenbank nicht gefanden:\n" + DATABASE + "\n\n Es wurde keine Änderung an den Einstellungen vorgenommen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Database not found:\n" + DATABASE + "\n\n There was no change to the settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
@@ -28,7 +28,7 @@ public class OpenProjectAndSetPartsDb
         }
         else
         {
-            MessageBox.Show("Projekt nicht gefanden:\n" + PROJECT, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Project not found:\n" + PROJECT, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         return;
 
