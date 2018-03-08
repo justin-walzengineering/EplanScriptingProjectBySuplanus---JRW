@@ -4,12 +4,12 @@
 // diese können dann mit dem Commente-Navigator verwaltet werden.
 //
 // Copyright by Frank Schöneck, 2013
-// letzte Änderung: Frank Schöneck, 28.02.2013 V1.0.0, Projektbeginn
-//					Frank Schöneck, 01.03.2013 V1.1.0, Ebene, Linientyp and Musterlänge als Variable eingesetzt
-//					Frank Schöneck, 16.04.2013 V1.2.0, Neuer Reiter "Einstellungen" mit der Möglichkeit zum gruppieren,
-//                                                     Name geändert von "InsertPDFComment" in "InsertComment"
+// Last change: Frank Schöneck, 28.02.2013 V1.0.0, Projektbeginn
+//					Frank Schöneck, 01.03.2013 V1.1.0, Level, Linetype and Musterlänge als Variable eingesetzt
+//                  Frank Schöneck, 16.04.2013 V1.2.0, New tab "Settings" with the possibility to group,
+//                      Name changed from "InsertPDFComment" to "InsertComment"
 //
-// für Eplan Electric P8, ab V2.2
+// For Eplan Electric P8, ab V2.2
 //
 
 // InsertComment, Version 1.2.0, dated 16.04.2013
@@ -25,6 +25,8 @@
 //
 // for Eplan Electric P8, from V2.2
 //
+
+// Menu created at location: Page > Insert comment
 
 using System.Windows.Forms;
 using Eplan.EplApi.Scripting;
@@ -151,11 +153,11 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		// 
 		this.cBStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 		this.cBStatus.Items.AddRange(new object[] {
-            "no Status",
-            "Akzeptiert",
-            "Abgelehnt",
-            "Abgebrochen",
-            "Beendet"});
+            "No status",
+            "Accepted",
+            "Declined",
+            "Canceled",
+            "Completed"});
 		this.cBStatus.Location = new System.Drawing.Point(201, 94);
 		this.cBStatus.MaxDropDownItems = 5;
 		this.cBStatus.Name = "cBStatus";
@@ -164,7 +166,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		// 
 		// dCreationDate
 		// 
-		this.dCreationDate.CustomFormat = "dd.MM.yyyy HH:mm:ss";
+		this.dCreationDate.CustomFormat = "MM.dd.yyyy HH:mm:ss";
 		this.dCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 		this.dCreationDate.Location = new System.Drawing.Point(9, 94);
 		this.dCreationDate.Name = "dCreationDate";
@@ -187,7 +189,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.label4.Name = "label4";
 		this.label4.Size = new System.Drawing.Size(80, 13);
 		this.label4.TabIndex = 6;
-		this.label4.Text = "Commenttext:";
+		this.label4.Text = "Comment text:";
 		// 
 		// label3
 		// 
@@ -205,7 +207,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.label2.Name = "label2";
 		this.label2.Size = new System.Drawing.Size(90, 13);
 		this.label2.TabIndex = 2;
-		this.label2.Text = "CreationDate:";
+		this.label2.Text = "Creation Date:";
 		// 
 		// txtWriter
 		// 
@@ -221,7 +223,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.label1.Name = "label1";
 		this.label1.Size = new System.Drawing.Size(54, 13);
 		this.label1.TabIndex = 0;
-		this.label1.Text = "Verfasser:";
+		this.label1.Text = "Author:";
 		// 
 		// tabSettings
 		// 
@@ -232,7 +234,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
 		this.tabSettings.Size = new System.Drawing.Size(418, 331);
 		this.tabSettings.TabIndex = 1;
-		this.tabSettings.Text = "Einstellungen";
+		this.tabSettings.Text = "Settings";
 		// 
 		// chkCommentTextGroup
 		// 
@@ -243,7 +245,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.chkCommentTextGroup.Name = "chkCommentTextGroup";
 		this.chkCommentTextGroup.Size = new System.Drawing.Size(246, 17);
 		this.chkCommentTextGroup.TabIndex = 0;
-		this.chkCommentTextGroup.Text = "Symbol and Commenttext gruppiert platzieren";
+		this.chkCommentTextGroup.Text = "Symbol and Comment group text placed";
 		this.chkCommentTextGroup.UseVisualStyleBackColor = true;
 		// 
 		// frmInsertComment
@@ -262,7 +264,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 		this.Name = "frmInsertComment";
 		this.ShowInTaskbar = false;
 		this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-		this.Text = "InsertComment";
+		this.Text = "Insert Comment";
 		this.Load += new System.EventHandler(this.frmInsertComment_Load);
 		this.tabControl1.ResumeLayout(false);
 		this.tabComment.ResumeLayout(false);
@@ -304,7 +306,7 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 
         //Preset the author
 #if DEBUG
-        txtWriter.Text = "FrankS";
+        txtWriter.Text = "Justin R. Walz";
 #else
 
 		UserRights oUserRights = new UserRights();
@@ -328,20 +330,20 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 	{
         //Level of Comment(A411 = 519(EPLAN519, Graphics.Comment))
 
-        string sEbene = "519";
+        string sLevel = "519";
 
         //Linetype of Comment(A412 = L(Layer) / 0(solid) / 41(~~~~~))
 
-        string sLinientyp = "41";
+        string sLinetype = "41";
 
         //Pattern length of the comment(A415 = L(layer) / -1.5(1.50 mm) / -32(32.00 mm))
         string sMusterlänge = "-1.5";
 
         //Comment color (A413 = 0(black) / 1(red) / 2(yellow) / 3(light green) / 4(light blue) / 5(dark blue) / 6(violet) / 8(white) / 40(orange))
-        string sFarbe = "40";
+        string sColor = "40";
 
         //Author (A2521)
-        string sVerfasser = txtWriter.Text;
+        string sAuthor = txtWriter.Text;
 
 		//Creation Date (A2524)
 		string sCreationDate = DateTimeToUnixTimestamp(dCreationDate.Value).ToString(); // Convert DateTime value to Unix Timestamp format
@@ -381,12 +383,12 @@ public partial class frmInsertComment : System.Windows.Forms.Form
 			writer.WriteRaw("\n  <O26 Build=\"6360\" A1=\"26/128740\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A431=\"1\">");
 		}
         //Characteristics Comment
-        writer.WriteRaw("\n  <O165 Build=\"6360\" A1=\"165/128741\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"" + sLinientyp + "\" A413=\"" + sFarbe + "\" A414=\"0.352777238812552\" A415=\"" + sMusterlänge + "\" A416=\"0\" A501=\"64/248\" A503=\"0\" A504=\"0\" A506=\"22\" A511=\"" + sCommenttext + "\" A2521=\"" + sVerfasser + "\" A2522=\"\" A2523=\"\" A2524=\"" + sCreationDate + "\" A2525=\"" + sCreationDate + "\" A2526=\"2\" A2527=\"" + sStatus + "\" A2528=\"0\" A2529=\"0\" A2531=\"0\" A2532=\"0\" A2533=\"64/248;70.349110320284/254.349110320285\" A2534=\"2\" A2539=\"0\" A2540=\"0\">");
+        writer.WriteRaw("\n  <O165 Build=\"6360\" A1=\"165/128741\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sLevel + "\" A412=\"" + sLinetype + "\" A413=\"" + sColor + "\" A414=\"0.352777238812552\" A415=\"" + sMusterlänge + "\" A416=\"0\" A501=\"64/248\" A503=\"0\" A504=\"0\" A506=\"22\" A511=\"" + sCommenttext + "\" A2521=\"" + sAuthor + "\" A2522=\"\" A2523=\"\" A2524=\"" + sCreationDate + "\" A2525=\"" + sCreationDate + "\" A2526=\"2\" A2527=\"" + sStatus + "\" A2528=\"0\" A2529=\"0\" A2531=\"0\" A2532=\"0\" A2533=\"64/248;70.349110320284/254.349110320285\" A2534=\"2\" A2539=\"0\" A2540=\"0\">");
 		writer.WriteRaw("\n  <S54x505 A961=\"L\" A962=\"L\" A963=\"0\" A964=\"L\" A965=\"0\" A966=\"0\" A967=\"0\" A968=\"0\" A969=\"0\" A4000=\"L\" A4001=\"L\" A4013=\"0\"/>");
 		writer.WriteRaw("\n  </O165>");
 
         //Characteristics Text
-        writer.WriteRaw("\n  <O30 Build=\"6360\" A1=\"30/128742\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sEbene + "\" A412=\"L\" A413=\"L\" A414=\"L\" A415=\"L\" A416=\"0\" A501=\"72/248\" A503=\"0\" A504=\"0\" A506=\"0\" A511=\"" + sCommenttext + "\">");
+        writer.WriteRaw("\n  <O30 Build=\"6360\" A1=\"30/128742\" A3=\"0\" A13=\"0\" A14=\"0\" A404=\"1\" A405=\"64\" A406=\"0\" A407=\"0\" A411=\"" + sLevel + "\" A412=\"L\" A413=\"L\" A414=\"L\" A415=\"L\" A416=\"0\" A501=\"72/248\" A503=\"0\" A504=\"0\" A506=\"0\" A511=\"" + sCommenttext + "\">");
 		writer.WriteRaw("\n  <S54x505 A961=\"L\" A962=\"L\" A963=\"0\" A964=\"L\" A965=\"0\" A966=\"0\" A967=\"0\" A968=\"0\" A969=\"0\" A4000=\"L\" A4001=\"L\" A4013=\"0\"/>");
 		writer.WriteRaw("\n  </O30>");
 

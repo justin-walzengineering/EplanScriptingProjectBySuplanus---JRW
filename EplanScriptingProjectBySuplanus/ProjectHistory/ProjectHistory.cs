@@ -202,7 +202,7 @@ public class FrmProjectHistory : System.Windows.Forms.Form
         this.ShowInTaskbar = false;
         this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = "ProjectHistory";
+        this.Text = "Project History";
         this.Load += new System.EventHandler(this.FrmSearchMacros_Load);
         this.statusStrip1.ResumeLayout(false);
         this.statusStrip1.PerformLayout();

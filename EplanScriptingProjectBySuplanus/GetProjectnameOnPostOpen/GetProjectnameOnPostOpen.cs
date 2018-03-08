@@ -10,12 +10,12 @@ public class GetProjectnameOnPostOpen
         try
         {
             EventParameterString oEventParameterString = new EventParameterString(iEventParameter);
-            MessageBox.Show("Projekt öffnen:\n" + oEventParameterString.String, "OnPostOpenProject");
+            MessageBox.Show("Open project:\n" + oEventParameterString.String, "OnPostOpenProject");
 
         }
         catch (System.InvalidCastException exc)
         {
-            MessageBox.Show(exc.Message, "Fehler");
+            MessageBox.Show(exc.Message, "Error");
         }
     }
 }

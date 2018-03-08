@@ -48,7 +48,7 @@ namespace EplanScriptingProjectBySuplanus.GetProjectProperty
                 ActionCallingContext actionCallingContext = new ActionCallingContext();
                 actionCallingContext.AddParameter("configscheme", "GetProjectProperty");
                 actionCallingContext.AddParameter("destinationfile", pathOutput);
-                actionCallingContext.AddParameter("language", "de_DE");
+                actionCallingContext.AddParameter("language", "en_US");
                 new CommandLineInterpreter().Execute("label", actionCallingContext);
 
                 // Read

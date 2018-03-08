@@ -1,13 +1,13 @@
 ﻿// PlaceHolderTranslateAction.cs
 //
-// Erweitert das Kontextmenü vom Platzhalterobjekt (Reiter Werte) um den Menüpunkt "Übersetzen"
-// and um den Menüpunkt "Übersetzungen entfernen"
+// extends the context menu of the placeholder object (Tab Values) with the menu item "Translate"
+// and to the menu item "Translations remove"
 //
 // Copyright by Frank Schöneck, 2015
-// letzte Änderung:
-// V1.0.0, 23.10.2015, Frank Schöneck, Projektbeginn
+// last change:
+// V1.0.0, 23.10.2015, Frank Schöneck, start of project
 //
-// für Eplan Electric P8, ab V2.5
+// for Eplan Electric P8, from V2.5
 //
 
 using Eplan.EplApi.ApplicationFramework;

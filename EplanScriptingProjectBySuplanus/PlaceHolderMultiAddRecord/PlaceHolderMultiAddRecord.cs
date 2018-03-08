@@ -1,13 +1,13 @@
-﻿// PlaceHolderMultiAddRecord, Version 1.1.0, vom 04.11.2014
+﻿// PlaceHolderMultiAddRecord, Version 1.1.0, from 04.11.2014
 //
-// Erweitert das Kontextmenü vom Platzhalterobjekt (Reiter Werte) um den Menüpunkt "Neuer Wertesatz (Mehrfach)..."
-// Erlaubt darüber das anlegen von mehreren leeren Wertesätzen.
+// extends the context menu of the placeholder object (Tab Values) with the menu item "New Value Set (Multiple) ..."
+// Allows you to create several empty value sets.
 //
 // Copyright by Frank Schöneck, 2013-2014
-// letzte Änderung: Frank Schöneck, 16.01.2013 V1.0.0, Projektbeginn
-//					Frank Schöneck, 04.11.2014 V1.1.0, Umgestellt von SendKeys auf Action "MacrosGuiIGfWindNewRecord"
+// last change: Frank Schöneck, 16.01.2013 V1.0.0, start of project
+// Frank Schöneck, 04.11.2014 V1.1.0, changed by SendKeys to Action "MacrosGuiIGfWindNewRecord"
 //
-// für Eplan Electric P8, ab V2.2
+// for Eplan Electric P8, from V2.2
 //
 
 using System;

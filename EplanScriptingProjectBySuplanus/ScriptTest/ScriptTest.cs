@@ -20,10 +20,10 @@ namespace ibKastl.Scripts.Test
             // Check file
             if (!File.Exists(scriptPath))
             {
-                MessageBox.Show("Scriptdatei wurde nicht gefanden:"
+                MessageBox.Show("Script file was not found:"
                                 + Environment.NewLine + scriptPath + Environment.NewLine +
-                                "Das Script wurde nicht geladen.",
-                                "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                "The script was not loaded.",
+                                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
